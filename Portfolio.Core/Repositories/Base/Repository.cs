@@ -14,7 +14,7 @@ namespace Portfolio.Core.Repositories.Base
 
         public async Task Create(params TEntity[] entity)
         {
-            await Set.AddRangeAsync(entity);
+            Set.AddRange(entity);
             await CheckAutoSaveAsync();
         }
 

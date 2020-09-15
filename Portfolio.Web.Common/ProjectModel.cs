@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Portfolio.Common.Projects
+namespace Portfolio.Web.Common
 {
     public class ProjectModel
     {
