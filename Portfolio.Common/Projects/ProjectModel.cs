@@ -10,12 +10,6 @@ namespace Portfolio.Common.Projects
 
         public string Description { get; set; }
 
-        public string Customer { get; set; }
-
-        public int EmployerId { get; set; }
-
-        public string[] Technologies { get; set; }
-
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
@@ -24,5 +18,10 @@ namespace Portfolio.Common.Projects
 
         public bool Show { get; set; }
 
+        public string Customer { get; set; }
+
+        public int EmployerId { get; set; }
+
+        public string[] Technologies { get; set; }
     }
 }

@@ -22,14 +22,6 @@ namespace Portfolio.Core.Entities
         [Required]
         public string Description { get; set; }
 
-        public string Customer { get; set; }
-
-        public int EmployerId { get; set; }
-
-        public Employer Employer { get; set; }
-
-        public virtual IQueryable<ProjectTechnology> ProjectTechnologies { get; set; }
-
         [Required]
         public DateTime StartDate { get; set; }
 
@@ -41,5 +33,13 @@ namespace Portfolio.Core.Entities
 
         [Required]
         public bool Show { get; set; } = true;
+
+        public string Customer { get; set; }
+
+        public int EmployerId { get; set; }
+
+        public Employer Employer { get; set; }
+
+        public virtual IQueryable<ProjectTechnology> ProjectTechnologies { get; set; }
     }
 }
