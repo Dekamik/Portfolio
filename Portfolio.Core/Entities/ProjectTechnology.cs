@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Portfolio.Core.Entities
 {
-    public class ProjectTechnology
+    public class ProjectTechnology : BaseEntity
     {
         public int ProjectId { get; set; }
 

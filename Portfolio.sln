@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common", "Portfol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Core", "Portfolio.Core\Portfolio.Core.csproj", "{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Web.Api", "Portfolio.Web.Api\Portfolio.Web.Api.csproj", "{34A36489-FC07-4C6B-A393-98758ED3AEED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A36489-FC07-4C6B-A393-98758ED3AEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A36489-FC07-4C6B-A393-98758ED3AEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A36489-FC07-4C6B-A393-98758ED3AEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A36489-FC07-4C6B-A393-98758ED3AEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

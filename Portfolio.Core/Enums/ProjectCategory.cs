@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Portfolio.Core.Entities
+namespace Portfolio.Core.Enums
 {
     public enum ProjectCategory
     {

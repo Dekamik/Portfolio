@@ -7,12 +7,8 @@ using System.Text;
 
 namespace Portfolio.Core.Entities
 {
-    public class Project
+    public class Project : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProjectId { get; set; }
-
         [Required]
         public string Name { get; set; }
 
