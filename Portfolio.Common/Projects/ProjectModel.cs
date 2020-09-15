@@ -12,7 +12,7 @@ namespace Portfolio.Common.Projects
 
         public string Customer { get; set; }
 
-        public EmployerModel Employer { get; set; }
+        public int EmployerId { get; set; }
 
         public string[] Technologies { get; set; }
 
