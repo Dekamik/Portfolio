@@ -1,0 +1,28 @@
+﻿using System;
+
+namespace Portfolio.Common.Projects
+{
+    public class ProjectModel
+    {
+        public string Name { get; set; }
+
+        public string Role { get; set; }
+
+        public string Description { get; set; }
+
+        public string Customer { get; set; }
+
+        public EmployerModel Employer { get; set; }
+
+        public string[] Technologies { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public bool IsHighlighted { get; set; }
+
+        public bool Show { get; set; } = true;
+
+    }
+}
