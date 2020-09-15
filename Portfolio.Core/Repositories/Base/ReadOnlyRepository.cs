@@ -16,12 +16,11 @@ namespace Portfolio.Core.Repositories.Base
             _dbContext = dbContext;
         }
 
-        public IQueryable<TEntity> GetAll()
-        {
-            return _dbContext.Set<TEntity>();
-        }
+        internal DbSet<TEntity> Set => _dbContext.Set<TEntity>();
 
-        public IQueryable<TEntity> GetById(params int[] id)
+        public IQueryable<TEntity> GetAll() => Set.AsNoTracking();
+
+        public IQueryable<TEntity> Get(params int[] id)
         {
             return GetAll().Where(e => id.Contains(e.Id));
         }

@@ -12,21 +12,21 @@ namespace Portfolio.Core.Repositories.Base
 
         public Repository(TDbContext dbContext) : base(dbContext) { }
 
-        public async Task Create(TEntity entity)
+        public async Task Create(params TEntity[] entity)
         {
-            await _dbContext.AddAsync(entity);
+            await Set.AddRangeAsync(entity);
             await CheckAutoSaveAsync();
         }
 
-        public async Task Update(TEntity entity)
+        public async Task Update(params TEntity[] entity)
         {
-            _dbContext.Update(entity);
+            Set.UpdateRange(entity);
             await CheckAutoSaveAsync();
         }
 
-        public async Task Delete(TEntity entity)
+        public async Task Delete(params TEntity[] entity)
         {
-            _dbContext.Remove(entity);
+            Set.RemoveRange(entity);
             await CheckAutoSaveAsync();
         }
 
