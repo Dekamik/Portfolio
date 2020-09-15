@@ -22,7 +22,7 @@ namespace Portfolio.Common.Projects
 
         public bool IsHighlighted { get; set; }
 
-        public bool Show { get; set; } = true;
+        public bool Show { get; set; }
 
     }
 }
