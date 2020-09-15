@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Portfolio.Core.Enums
+﻿namespace Portfolio.Core.Enums
 {
     public enum ProjectCategory
     {

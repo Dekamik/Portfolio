@@ -1,10 +1,6 @@
-﻿using Portfolio.Core.Base;
-using System;
-using System.Collections.Generic;
+﻿using Portfolio.Core.Entities.Base;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 
 namespace Portfolio.Core.Entities
 {

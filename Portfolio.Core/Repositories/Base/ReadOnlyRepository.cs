@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Portfolio.Core.Entities.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Portfolio.Core.Base
+namespace Portfolio.Core.Repositories.Base
 {
     public abstract class ReadOnlyRepository<TEntity, TDbContext> 
         where TEntity : BaseEntity

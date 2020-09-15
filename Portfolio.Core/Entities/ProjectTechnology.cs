@@ -1,7 +1,4 @@
-﻿using Portfolio.Core.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Portfolio.Core.Entities.Base;
 
 namespace Portfolio.Core.Entities
 {
