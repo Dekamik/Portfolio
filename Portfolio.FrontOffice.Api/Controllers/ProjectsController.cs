@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
+using Portfolio.FrontOffice.Common;
 using Portfolio.FrontOffice.Common.Routing;
 
 namespace Portfolio.FrontOffice.Api.Controllers
@@ -13,6 +12,42 @@ namespace Portfolio.FrontOffice.Api.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly ProjectReadOnlyRepository
+        private readonly IProjectReadOnlyRepository _repository;
+
+        public ProjectsController(IProjectReadOnlyRepository repository)
+        {
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public IActionResult GetProjects()
+        {
+            IQueryable<Project> projects = _repository.GetAll();
+            IEnumerable<ProjectModel> projectModels = GetProjectModels(projects);
+            return Ok(projectModels);
+        }
+
+        private IEnumerable<ProjectModel> GetProjectModels(IQueryable<Project> projects)
+        {
+            foreach(var project in projects)
+            {
+                yield return new ProjectModel
+                {
+                    Name = project.Name,
+                    Role = project.Role,
+                    Description = project.Description,
+                    Category = project.Category,
+                    StartDate = project.StartDate,
+                    EndDate = project.EndDate,
+                    IsHighlighted = project.IsHighlighted,
+                    Show = project.Show,
+                    Customer = project.Customer,
+                    EmployerId = project.EmployerId,
+                    Technologies = project.ProjectTechnologies
+                        .Select(pt => pt.Technology.Name)
+                        .ToArray()
+                };
+            }
+        }
     }
 }
