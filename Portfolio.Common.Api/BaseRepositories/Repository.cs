@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Common.Api.BaseRepositories
 {
-    public abstract class Repository<TEntity, TDbContext> : ReadOnlyRepository<TEntity, TDbContext>
+    public abstract class Repository<TEntity, TDbContext> : ReadOnlyRepository<TEntity, TDbContext>, IRepository<TEntity>
         where TEntity : BaseEntity
         where TDbContext : DbContext
     {

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Portfolio.Common.Api.BaseRepositories
 {
-    public abstract class ReadOnlyRepository<TEntity, TDbContext> 
+    public abstract class ReadOnlyRepository<TEntity, TDbContext> : IReadOnlyRepository<TEntity>
         where TEntity : BaseEntity
         where TDbContext : DbContext
     {

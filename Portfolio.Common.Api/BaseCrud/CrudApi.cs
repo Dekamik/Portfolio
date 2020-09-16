@@ -8,7 +8,7 @@ using Portfolio.Common.Api.BaseRepositories;
 
 namespace Portfolio.Common.Api.BaseCrud
 {
-    public class CrudApi<TEntity, TRepository, TDbContext> : ReadOnlyRepositoryApi<TEntity, TRepository, TDbContext>
+    public class CrudApi<TEntity, TRepository, TDbContext> : ReadOnlyApi<TEntity, TRepository, TDbContext>, ICrudApi<TEntity>
         where TEntity : BaseEntity
         where TRepository : Repository<TEntity, TDbContext>
         where TDbContext : DbContext

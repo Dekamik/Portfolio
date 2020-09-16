@@ -3,7 +3,7 @@
 @using Portfolio.FrontOffice.Web.Pages.Projects
 @inject HttpClient Http
 
-<Spinner IsLoading=@IsLoading>
+<Spinner IsLoading=@isLoading>
     @foreach (var project in projectModels)
     {
         <ProjectCard ProjectModel=@project />
@@ -11,13 +11,13 @@
 </Spinner>
 
 @code {
-    public bool IsLoading = true;
+    private bool isLoading = true;
 
     private ProjectModel[] projectModels;
 
     protected override async Task OnInitializedAsync()
     {
         projectModels = await Http.GetFromJsonAsync<ProjectModel[]>("");
-        IsLoading = false;
+        isLoading = false;
     }
 }
