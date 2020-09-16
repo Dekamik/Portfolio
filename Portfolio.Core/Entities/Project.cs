@@ -1,4 +1,5 @@
-﻿using Portfolio.Core.Entities.Base;
+﻿using Portfolio.Common.Enums;
+using Portfolio.Core.Entities.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace Portfolio.Core.Entities
 
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        public ProjectCategory Category { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }

@@ -22,8 +22,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-rc.1.20451.14" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>
