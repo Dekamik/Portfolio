@@ -18,6 +18,8 @@ namespace Portfolio.Web.Api
 {
     public class Startup
     {
+        private readonly string _corsPolicy = "CorsPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,6 +30,17 @@ namespace Portfolio.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_corsPolicy, builder =>
+                {
+                    builder.AllowAnyMethod()
+                        .AllowCredentials()
+                        .SetIsOriginAllowed((host) => true)
+                        .AllowAnyHeader();
+                });
+            });
+
             services.AddDbContext<PortfolioDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("Portfolio")));
 
@@ -47,6 +60,8 @@ namespace Portfolio.Web.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_corsPolicy);
 
             app.UseAuthorization();
 

@@ -17,7 +17,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        projectModels = await Http.GetFromJsonAsync<ProjectModel[]>("");
+        projectModels = await Http.GetFromJsonAsync<ProjectModel[]>(ApiRoutes.Projects);
         isLoading = false;
     }
 }
