@@ -16,7 +16,7 @@ namespace Portfolio.Core
 
             var optionsBuilder = new DbContextOptionsBuilder<PortfolioDbContext>();
 
-            optionsBuilder.UseSqlServer(configuration["ConnectionString:Portfolio"]);
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("Portfolio"));
 
             return new PortfolioDbContext(optionsBuilder.Options);
         }
