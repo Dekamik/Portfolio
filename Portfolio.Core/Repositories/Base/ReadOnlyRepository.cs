@@ -16,9 +16,7 @@ namespace Portfolio.Core.Repositories.Base
             _dbContext = dbContext;
         }
 
-        internal DbSet<TEntity> Set => _dbContext.Set<TEntity>();
-
-        public IQueryable<TEntity> GetAll() => Set.AsNoTracking();
+        public IQueryable<TEntity> GetAll() => _dbContext.Set<TEntity>().AsNoTracking();
 
         public IQueryable<TEntity> Get(params int[] id)
         {

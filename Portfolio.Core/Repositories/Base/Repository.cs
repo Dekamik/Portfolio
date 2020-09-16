@@ -10,23 +10,25 @@ namespace Portfolio.Core.Repositories.Base
     {
         public bool AutoSave { get; set; }
 
+        private DbSet<TEntity> _set => _dbContext.Set<TEntity>();
+
         public Repository(TDbContext dbContext) : base(dbContext) { }
 
         public async Task Create(params TEntity[] entity)
         {
-            Set.AddRange(entity);
+            _set.AddRange(entity);
             await CheckAutoSaveAsync();
         }
 
         public async Task Update(params TEntity[] entity)
         {
-            Set.UpdateRange(entity);
+            _set.UpdateRange(entity);
             await CheckAutoSaveAsync();
         }
 
         public async Task Delete(params TEntity[] entity)
         {
-            Set.RemoveRange(entity);
+            _set.RemoveRange(entity);
             await CheckAutoSaveAsync();
         }
 
