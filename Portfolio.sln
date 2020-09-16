@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Web",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common", "Portfolio.Common\Portfolio.Common.csproj", "{F4834C7A-29B0-425B-93BC-B0E7DA75D7BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Core", "Portfolio.Core\Portfolio.Core.csproj", "{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Core", "Portfolio.Core\Portfolio.Core.csproj", "{402BE7C2-3EDA-4AEA-B7B9-6431A19DB42C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.FrontOffice.Api", "Portfolio.FrontOffice.Api\Portfolio.FrontOffice.Api.csproj", "{34A36489-FC07-4C6B-A393-98758ED3AEED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Api", "Portfolio.FrontOffice.Api\Portfolio.FrontOffice.Api.csproj", "{34A36489-FC07-4C6B-A393-98758ED3AEED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.FrontOffice.Common", "Portfolio.FrontOffice.Common\Portfolio.FrontOffice.Common.csproj", "{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Common", "Portfolio.FrontOffice.Common\Portfolio.FrontOffice.Common.csproj", "{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

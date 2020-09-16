@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Portfolio.Core.Entities.Base
+namespace Portfolio.Common.Api.BaseEntities
 {
     public abstract class BaseEntity
     {

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Portfolio.Core.Entities.Base;
-using Portfolio.Core.Repositories.Base;
+using Portfolio.Common.Api.BaseEntities;
+using Portfolio.Common.Api.BaseRepositories;
 
-namespace Portfolio.Web.Api.BaseCrud
+namespace Portfolio.Common.Api.BaseCrud
 {
     public class CrudApi<TEntity, TRepository, TDbContext> : ReadOnlyRepositoryApi<TEntity, TRepository, TDbContext>
         where TEntity : BaseEntity

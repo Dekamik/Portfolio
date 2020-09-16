@@ -1,5 +1,5 @@
-﻿using Portfolio.Common.Enums;
-using Portfolio.Core.Entities.Base;
+﻿using Portfolio.Common.Api.BaseEntities;
+using Portfolio.Common.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

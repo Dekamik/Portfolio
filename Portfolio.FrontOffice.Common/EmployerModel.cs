@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Portfolio.Web.Common
+namespace Portfolio.FrontOffice.Common
 {
     public class EmployerModel
     {

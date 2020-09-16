@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Portfolio.Core.Entities.Base;
+using Portfolio.Common.Api.BaseEntities;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Portfolio.Core.Repositories.Base
+namespace Portfolio.Common.Api.BaseRepositories
 {
     public abstract class Repository<TEntity, TDbContext> : ReadOnlyRepository<TEntity, TDbContext>
         where TEntity : BaseEntity

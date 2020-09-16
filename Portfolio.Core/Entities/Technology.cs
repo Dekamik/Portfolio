@@ -1,4 +1,4 @@
-﻿using Portfolio.Core.Entities.Base;
+﻿using Portfolio.Common.Api.BaseEntities;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
