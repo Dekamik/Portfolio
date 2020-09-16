@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Common.Enums;
+using System;
 
 namespace Portfolio.FrontOffice.Common
 {
@@ -10,9 +11,11 @@ namespace Portfolio.FrontOffice.Common
 
         public string Description { get; set; }
 
+        public ProjectCategory Category { get; set; }
+
         public DateTime StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public bool IsHighlighted { get; set; }
 

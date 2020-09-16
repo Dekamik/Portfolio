@@ -1,0 +1,23 @@
+﻿@attribute [Route("/" + Portfolio.FrontOffice.Web.Routing.WebRoutes.Projects)]
+@using Portfolio.FrontOffice.Common
+@using Portfolio.FrontOffice.Web.Pages.Projects
+@inject HttpClient Http
+
+<Spinner IsLoading=@IsLoading>
+    @foreach (var project in projectModels)
+    {
+        <ProjectCard ProjectModel=@project />
+    }
+</Spinner>
+
+@code {
+    public bool IsLoading = true;
+
+    private ProjectModel[] projectModels;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projectModels = await Http.GetFromJsonAsync<ProjectModel[]>("");
+        IsLoading = false;
+    }
+}

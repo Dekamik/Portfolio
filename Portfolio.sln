@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Web", "Portfolio.FrontOffice.Web\Portfolio.FrontOffice.Web.csproj", "{3F8BD548-BE4B-46AE-9D2E-2CD61B62DABF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E} = {9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common", "Portfolio.Common\Portfolio.Common.csproj", "{F4834C7A-29B0-425B-93BC-B0E7DA75D7BB}"
 EndProject
@@ -13,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Api",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Common", "Portfolio.FrontOffice.Common\Portfolio.FrontOffice.Common.csproj", "{9BD10C22-2FF6-4D9F-A3ED-904F6B63790E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

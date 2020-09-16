@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Portfolio.Common\Portfolio.Common.csproj" />
+    <ProjectReference Include="..\Portfolio.FrontOffice.Common\Portfolio.FrontOffice.Common.csproj" />
   </ItemGroup>
 
 </Project>
