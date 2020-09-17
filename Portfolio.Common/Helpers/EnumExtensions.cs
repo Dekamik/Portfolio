@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
@@ -13,5 +14,7 @@ namespace Portfolio.Common.Helpers
                 .First()
                 .GetCustomAttribute<TAttribute>();
         }
+
+        public static string GetDisplayName(this Enum enumValue) => enumValue.GetAttribute<DisplayAttribute>().Name;
     }
 }

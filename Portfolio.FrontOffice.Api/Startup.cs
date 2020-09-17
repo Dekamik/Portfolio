@@ -45,6 +45,7 @@ namespace Portfolio.Web.Api
                 options.UseSqlServer(Configuration.GetConnectionString("Portfolio")));
 
             services.AddScoped<IProjectReadOnlyRepository, ProjectReadOnlyRepository>();
+            services.AddScoped<IEmployerReadOnlyRepository, EmployerReadOnlyRepository>();
 
             services.AddControllers();
         }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Common.Api.BaseRepositories
 {
-    interface IRepository<TEntity>
+    public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     {
         Task Create(params TEntity[] entity);
 

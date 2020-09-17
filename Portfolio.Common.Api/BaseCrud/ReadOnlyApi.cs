@@ -3,12 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Portfolio.Common.Api.BaseEntities;
 using Portfolio.Common.Api.BaseRepositories;
+using System.Linq;
 
 namespace Portfolio.Common.Api.BaseCrud
 {
     public abstract class ReadOnlyApi<TEntity, TRepository, TDbContext> : ControllerBase, IReadOnlyApi
         where TEntity : BaseEntity
-        where TRepository : ReadOnlyRepository<TEntity, TDbContext>
+        where TRepository : IReadOnlyRepository<TEntity>
         where TDbContext : DbContext
     {
         internal readonly TRepository _repository;
@@ -23,13 +24,15 @@ namespace Portfolio.Common.Api.BaseCrud
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_repository.GetAll());
+            IQueryable<TEntity> entities = _repository.GetAll();
+            return Ok(entities);
         }
 
         [HttpGet, Route("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_repository.Get(id));
+            TEntity entity = _repository.Get(id).SingleOrDefault();
+            return Ok(entity);
         }
     }
 }

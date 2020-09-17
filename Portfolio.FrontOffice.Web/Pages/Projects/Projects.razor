@@ -6,7 +6,8 @@
 <Spinner IsLoading=@isLoading>
     @foreach (var project in projectModels)
     {
-        <ProjectCard ProjectModel=@project />
+        <ProjectCard ProjectModel=@project 
+                     EmployerName=@employers.SingleOrDefault(e => e.EmployerId == project.EmployerId)?.Name />
     }
 </Spinner>
 
@@ -15,9 +16,12 @@
 
     private ProjectModel[] projectModels;
 
+    private EmployerModel[] employers;
+
     protected override async Task OnInitializedAsync()
     {
         projectModels = await Http.GetFromJsonAsync<ProjectModel[]>(ApiRoutes.Projects);
+        employers = await Http.GetFromJsonAsync<EmployerModel[]>(ApiRoutes.Employers);
         isLoading = false;
     }
 }
