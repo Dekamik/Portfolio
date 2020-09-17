@@ -1,4 +1,4 @@
-﻿<div class="card">
+﻿<div class="card project-card">
     <div class="card-header">
         @(ProjectModel.Category == ProjectCategory.FreeTime ? ProjectModel.Category.GetDisplayName() : ProjectModel.Employer)
         <span class="float-right">@ProjectModel.StartDate.ToString("yyyy-MM") - @(ProjectModel.EndDate?.ToString("yyyy-MM") ?? "today")</span>

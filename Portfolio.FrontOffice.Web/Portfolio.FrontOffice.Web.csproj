@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Portfolio.FrontOffice.Common\Portfolio.FrontOffice.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
