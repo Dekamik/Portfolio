@@ -6,8 +6,11 @@
 <Spinner IsLoading=@isLoading>
     @foreach (var project in projectModels)
     {
-        <ProjectCard ProjectModel=@project />
-        <hr />
+        @if (project.Show)
+        {
+            <ProjectCard ProjectModel=@project />
+            <hr />
+        }
     }
 </Spinner>
 
