@@ -43,8 +43,8 @@ namespace Portfolio.FrontOffice.Api.Controllers
                     Show = project.Show,
                     Customer = project.Customer,
                     EmployerId = project.EmployerId,
-                    Technologies = project.ProjectTechnologies
-                        .Select(pt => pt.Technology.Name)
+                    Skills = project.ProjectSkills
+                        .Select(pt => pt.Skill.Name)
                         .ToArray()
                 };
             }

@@ -13,8 +13,8 @@ namespace Portfolio.Core
 
         public DbSet<Project> Projects { get; set; }
 
-        public DbSet<ProjectTechnology> ProjectTechnologies { get; set; }
+        public DbSet<ProjectSkill> ProjectSkills { get; set; }
 
-        public DbSet<Technology> Technologies { get; set; }
+        public DbSet<Skill> Skills { get; set; }
     }
 }

@@ -25,6 +25,6 @@ namespace Portfolio.FrontOffice.Common
 
         public int? EmployerId { get; set; }
 
-        public string[] Technologies { get; set; }
+        public string[] Skills { get; set; }
     }
 }

@@ -2,14 +2,14 @@
 
 namespace Portfolio.Core.Entities
 {
-    public class ProjectTechnology : BaseEntity
+    public class ProjectSkill : BaseEntity
     {
         public int ProjectId { get; set; }
 
         public Project Project { get; set; }
 
-        public int TechnologyId { get; set; }
+        public int SkillId { get; set; }
 
-        public Technology Technology { get; set; }
+        public Skill Skill { get; set; }
     }
 }

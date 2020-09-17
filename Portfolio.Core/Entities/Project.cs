@@ -37,6 +37,6 @@ namespace Portfolio.Core.Entities
 
         public Employer Employer { get; set; }
 
-        public virtual IQueryable<ProjectTechnology> ProjectTechnologies { get; set; }
+        public virtual IQueryable<ProjectSkill> ProjectSkills { get; set; }
     }
 }
