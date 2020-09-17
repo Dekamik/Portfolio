@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Portfolio.Common.Api.BaseEntities;
 using Portfolio.Common.Api.BaseRepositories;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Portfolio.Common.Api.BaseCrud
 {
@@ -29,9 +30,9 @@ namespace Portfolio.Common.Api.BaseCrud
         }
 
         [HttpGet, Route("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            TEntity entity = _repository.Get(id).SingleOrDefault();
+            TEntity entity = await _repository.Get(id).SingleOrDefaultAsync();
             return Ok(entity);
         }
     }
