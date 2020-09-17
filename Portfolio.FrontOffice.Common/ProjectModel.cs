@@ -23,7 +23,7 @@ namespace Portfolio.FrontOffice.Common
 
         public string Customer { get; set; }
 
-        public int? EmployerId { get; set; }
+        public string Employer { get; set; }
 
         public string[] Skills { get; set; }
     }

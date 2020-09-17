@@ -1,7 +1,7 @@
 ﻿using Portfolio.Common.Api.BaseEntities;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Portfolio.Core.Entities
 {
@@ -15,6 +15,6 @@ namespace Portfolio.Core.Entities
 
         public DateTime? EndDate { get; set; }
 
-        public virtual IQueryable<Project> Projects { get; set; }
+        public virtual List<Project> Projects { get; set; }
     }
 }

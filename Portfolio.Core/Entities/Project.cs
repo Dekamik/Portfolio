@@ -1,8 +1,8 @@
 ﻿using Portfolio.Common.Api.BaseEntities;
 using Portfolio.Common.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Portfolio.Core.Entities
 {
@@ -37,6 +37,6 @@ namespace Portfolio.Core.Entities
 
         public Employer Employer { get; set; }
 
-        public virtual IQueryable<ProjectSkill> ProjectSkills { get; set; }
+        public virtual List<ProjectSkill> ProjectSkills { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Portfolio.Common.Api.BaseEntities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Portfolio.Core.Entities
 {
@@ -9,6 +9,6 @@ namespace Portfolio.Core.Entities
         [Required]
         public string Name { get; set; }
 
-        public virtual IQueryable<ProjectSkill> ProjectTechnologies { get; set; }
+        public virtual List<ProjectSkill> ProjectTechnologies { get; set; }
     }
 }

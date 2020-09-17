@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
 using Portfolio.FrontOffice.Common;
@@ -22,7 +23,11 @@ namespace Portfolio.FrontOffice.Api.Controllers
         [HttpGet]
         public IActionResult GetProjects()
         {
-            IQueryable<Project> projects = _repository.GetAll();
+            IQueryable<Project> projects = _repository.GetAll()
+                .Include(p => p.Employer)
+                .Include(p => p.ProjectSkills)
+                    .ThenInclude(ps => ps.Skill)
+                .OrderByDescending(p => p.StartDate);
             IEnumerable<ProjectModel> projectModels = GetProjectModels(projects);
             return Ok(projectModels);
         }
@@ -42,9 +47,10 @@ namespace Portfolio.FrontOffice.Api.Controllers
                     IsHighlighted = project.IsHighlighted,
                     Show = project.Show,
                     Customer = project.Customer,
-                    EmployerId = project.EmployerId,
+                    Employer = project.Employer?.Name,
                     Skills = project.ProjectSkills
-                        .Select(pt => pt.Skill.Name)
+                        .Select(ps => ps.Skill.Name)
+                        .OrderBy(s => s)
                         .ToArray()
                 };
             }
