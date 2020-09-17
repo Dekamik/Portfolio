@@ -14,14 +14,18 @@
 @code {
     private bool isLoading = true;
 
-    private ProjectModel[] projectModels;
-
     private EmployerModel[] employers;
+
+    private ProjectModel[] projectModels;
 
     protected override async Task OnInitializedAsync()
     {
-        projectModels = await Http.GetFromJsonAsync<ProjectModel[]>(ApiRoutes.Projects);
-        employers = await Http.GetFromJsonAsync<EmployerModel[]>(ApiRoutes.Employers);
+        Task<EmployerModel[]> employersDownload = Http.GetFromJsonAsync<EmployerModel[]>(ApiRoutes.Employers);
+        Task<ProjectModel[]> projectsDownload = Http.GetFromJsonAsync<ProjectModel[]>(ApiRoutes.Projects);
+
+        employers = await employersDownload;
+        projectModels = await projectsDownload;
+        
         isLoading = false;
     }
 }
