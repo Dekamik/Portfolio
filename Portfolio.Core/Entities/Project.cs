@@ -23,8 +23,7 @@ namespace Portfolio.Core.Entities
         [Required]
         public DateTime StartDate { get; set; }
 
-        [Required]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         [Required]
         public bool IsHighlighted { get; set; } = false;
@@ -34,7 +33,7 @@ namespace Portfolio.Core.Entities
 
         public string Customer { get; set; }
 
-        public int EmployerId { get; set; }
+        public int? EmployerId { get; set; }
 
         public Employer Employer { get; set; }
 

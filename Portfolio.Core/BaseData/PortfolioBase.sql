@@ -1,13 +1,18 @@
-﻿use Portfolio
+﻿USE Portfolio
 
-insert into Employers
-values (1, 'Adssets', '2014-06-02', '2016-05-04'),
+BEGIN TRANSACTION;
+
+SET IDENTITY_INSERT Employers ON;
+INSERT INTO Employers (Id, Name, StartDate, EndDate)
+VALUES (1, 'Adssets', '2014-06-02', '2016-05-04'),
 	   (2, 'Cybercom', '2016-05-04', '2016-08-08'),
 	   (3, 'SVRVIVE Studios', '2016-08-08', '2018-03-14'),
 	   (4, 'Sopra Steria', '2018-03-14', NULL);
+SET IDENTITY_INSERT Employers OFF;
 
-insert into Projects
-values (1, 'C&C Red Alert 3 - Resurrection (Mod)', 'Music producer', '', 2, '2009-07-01', '2010-04-01', 0, 0, 'Team Vikestart', NULL),
+SET IDENTITY_INSERT Projects ON;
+INSERT INTO Projects (Id, Name, Role, Description, Category, StartDate, EndDate, IsHighlighted, Show, Customer, EmployerId)
+VALUES (1, 'C&C Red Alert 3 - Resurrection (Mod)', 'Music producer', '', 2, '2009-07-01', '2010-04-01', 0, 0, 'Team Vikestart', NULL),
 	   (2, 'Adsscore', 'Java Developer', '', 1, '2014-06-02', '2016-05-04', 0, 1, NULL, 1),
 	   (3, 'Systems administration', 'Systems Administrator', '', 1, '2014-07-15', '2016-05-04', 0, 1, NULL, 1),
 	   (4, 'Data gatherer', 'Java Developer', '', 1, '2014-09-15', '2016-05-04', 0, 1, NULL, 1),
@@ -24,9 +29,11 @@ values (1, 'C&C Red Alert 3 - Resurrection (Mod)', 'Music producer', '', 2, '200
 	   (15, 'Smidas', '.NET Developer', '', 2, '2019-09-15', '2019-12-10', 1, 1, NULL, NULL),
 	   (16, 'Dental Care Systems', 'Full-stack .NET Developer', '', 1, '2019-07-15', NULL, 0, 1, 'Tandvårdsenheten Region Västmanland & Region Dalarna', 4),
 	   (17, 'Libretto 2.0', 'Full-stack .NET Developer', '', 1, '2020-03-01', '2020-08-14', 0, 1, 'Tandvårdsenheten Region Stockholm', 4);
+SET IDENTITY_INSERT Projects OFF;
 
-insert into Technologies
-values (1, 'Java EE'),
+SET IDENTITY_INSERT Technologies ON;
+INSERT INTO Technologies (Id, Name)
+VALUES (1, 'Java EE'),
 	   (2, 'Linux'),
 	   (3, 'HTML'),
 	   (4, 'CSS'),
@@ -129,9 +136,11 @@ values (1, 'Java EE'),
 	   (101, 'React Router'),
 	   (102, 'TypeScript'),
 	   (103, 'React Hooks');
+SET IDENTITY_INSERT Technologies OFF;
 
-insert into ProjectTechnologies
-values (1, 2, (SELECT Id FROM Technologies WHERE Name = 'Java EE')),
+SET IDENTITY_INSERT ProjectTechnologies ON;
+INSERT INTO ProjectTechnologies (Id, ProjectId, TechnologyId)
+VALUES (1, 2, (SELECT Id FROM Technologies WHERE Name = 'Java EE')),
 	   (2, 2, (SELECT Id FROM Technologies WHERE Name = 'HTML')),
 	   (3, 2, (SELECT Id FROM Technologies WHERE Name = 'CSS')),
 	   (4, 2, (SELECT Id FROM Technologies WHERE Name = 'MySQL')),
@@ -161,7 +170,7 @@ values (1, 2, (SELECT Id FROM Technologies WHERE Name = 'Java EE')),
 	   (28, 3, (SELECT Id FROM Technologies WHERE Name = 'Cron')),
 	   (29, 3, (SELECT Id FROM Technologies WHERE Name = 'Atlassian Jira')),
 	   (30, 4, (SELECT Id FROM Technologies WHERE Name = 'Bash')),
-	   (31, 4, (SELECT Id FROM Technologies WHERE Name = 'EJB (Enterprise JavaBeans')),
+	   (31, 4, (SELECT Id FROM Technologies WHERE Name = 'EJB (Enterprise JavaBeans)')),
 	   (32, 4, (SELECT Id FROM Technologies WHERE Name = 'Git')),
 	   (33, 4, (SELECT Id FROM Technologies WHERE Name = 'GlassFish')),
 	   (34, 4, (SELECT Id FROM Technologies WHERE Name = 'JDBC')),
@@ -327,4 +336,9 @@ values (1, 2, (SELECT Id FROM Technologies WHERE Name = 'Java EE')),
 	   (203, 17, (SELECT Id FROM Technologies WHERE Name = 'SQL Server')),
 	   (204, 17, (SELECT Id FROM Technologies WHERE Name = 'TypeScript')),
 	   (205, 17, (SELECT Id FROM Technologies WHERE Name = 'Entity Framework (EF)')),
-	   (206, 17, (SELECT Id FROM Technologies WHERE Name = 'T-SQL'));
+	   (206, 17, (SELECT Id FROM Technologies WHERE Name = 'T-SQL')),
+	   (207, 16, (SELECT Id FROM Technologies WHERE Name = 'WebForms'));
+SET IDENTITY_INSERT ProjectTechnologies OFF;
+
+ROLLBACK;
+--COMMIT;
