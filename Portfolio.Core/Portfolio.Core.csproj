@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Portfolio.Common.Api\Portfolio.Common.Api.csproj" />
+    <ProjectReference Include="..\Portfolio.Common.Core\Portfolio.Common.Core.csproj" />
     <ProjectReference Include="..\Portfolio.Common\Portfolio.Common.csproj" />
   </ItemGroup>
 

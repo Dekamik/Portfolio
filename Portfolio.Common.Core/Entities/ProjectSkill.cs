@@ -1,6 +1,6 @@
 ﻿using Portfolio.Common.Api.BaseEntities;
 
-namespace Portfolio.Core.Entities
+namespace Portfolio.Common.Core.Entities
 {
     public class ProjectSkill : BaseEntity
     {

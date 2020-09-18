@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Common.Core", "Portfolio.Common.Core\Portfolio.Common.Core.csproj", "{8734E00B-B50D-4EFA-A457-0D73683E9D3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

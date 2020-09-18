@@ -3,11 +3,11 @@
 BEGIN TRANSACTION;
 
 SET IDENTITY_INSERT Employers ON;
-INSERT INTO Employers (Id, Name, StartDate, EndDate)
-VALUES (1, 'Adssets', '2014-06-02', '2016-05-04'),
-	   (2, 'Cybercom', '2016-05-04', '2016-08-08'),
-	   (3, 'SVRVIVE Studios', '2016-08-08', '2018-03-14'),
-	   (4, 'Sopra Steria', '2018-03-14', NULL);
+INSERT INTO Employers (Id, Name, StartDate, EndDate, EmployerDescription, RoleDescription)
+VALUES (1, 'Adssets', '2014-06-02', '2016-05-04', 'Adssets is a small company that creates and serves rich-media advertisements on web publications.', 'With this employment, Dennis was thrust into the programming world with a bang. Due to the company''s small size, Dennis seized the opportunity to get busy working with several apps, as well as the server infrastructure that ran the apps.'),
+	   (2, 'Cybercom', '2016-05-04', '2016-08-08', 'Cybercom Group is a swedish IT-consultancy firm.', 'Dennis was briefly assigned to CrossKey as a Java consultant, where he helped the Cards and Loans team develop new functionality and create regression tests with Selenium, to ensure web-flows work as intended.'),
+	   (3, 'SVRVIVE Studios', '2016-08-08', '2018-03-14', 'SVRVIVE Studios (now Antler Interactive) is a small game studio which was initially focused on VR gaming. The studio has created games like SVRVIVE - The Deus Helix, Kartong - Death By Cardboard! and Krystal Kart AR.', 'As a VR-developer, Dennis helped finish and release SVRVIVE Studios first game (SVRVIVE - The Deus Helix) and helped bring the game to the chinese markets through Viveport. Additionally, since the company was so small, Dennis took the opportunity to handle much of the studios IT-infrastructure and also tried a short tenure as a producer for an unreleased game.'),
+	   (4, 'Sopra Steria', '2018-03-14', NULL, 'Sopra Steria is a french multi-national IT-consultancy firm.', 'As a full-stack .NET consultant, Dennis has been involved in several projects, both in-house and on-site, for customers like Kammarkollegiet, Rovio Entertainment (famous for Angry Birds) and Tandvårdsförvaltningen Region Stockholm, Region Västmanland and Region Dalarna. Dennis has also done lectures for Sopra Sterias graduates within Unity3D programming, and Test Driven Development (TDD).');
 SET IDENTITY_INSERT Employers OFF;
 
 SET IDENTITY_INSERT Projects ON;

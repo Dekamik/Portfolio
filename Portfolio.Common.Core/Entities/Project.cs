@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.Core.Entities
+namespace Portfolio.Common.Core.Entities
 {
     public class Project : BaseEntity
     {

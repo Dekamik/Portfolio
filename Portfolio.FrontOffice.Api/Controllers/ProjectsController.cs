@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Portfolio.Core.Entities;
+using Portfolio.Common.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
 using Portfolio.FrontOffice.Common;
 using Portfolio.FrontOffice.Common.Routing;

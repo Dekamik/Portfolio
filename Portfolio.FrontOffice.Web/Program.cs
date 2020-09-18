@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Portfolio.FrontOffice.Common;
+using Portfolio.Common.Core.Entities;
 
 namespace Portfolio.FrontOffice.Web
 {

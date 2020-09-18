@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.Core.Entities
+namespace Portfolio.Common.Core.Entities
 {
     public class Employer : BaseEntity
     {
@@ -14,6 +14,12 @@ namespace Portfolio.Core.Entities
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        [Required]
+        public string EmployerDescription { get; set; }
+
+        [Required]
+        public string RoleDescription { get; set; }
 
         public virtual List<Project> Projects { get; set; }
     }
