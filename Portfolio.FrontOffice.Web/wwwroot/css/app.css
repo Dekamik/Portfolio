@@ -82,7 +82,7 @@ app {
         }
 
         .sidebar .nav-item a {
-            color: #474747;
+            color: #212529;
             border-radius: 4px;
             height: 3rem;
             display: flex;
@@ -92,12 +92,13 @@ app {
 
             .sidebar .nav-item a.active {
                 background-color: rgba(255,255,255,0.25);
-                color: black;
+                color: white;
+                text-shadow: 0px 0px 5px steelblue;
             }
 
             .sidebar .nav-item a:hover {
                 background-color: rgba(255,255,255,0.1);
-                color: black;
+                color: white;
             }
 
 .content {
@@ -230,6 +231,15 @@ app {
 
 .social-media-icon {
     max-height: 64px;
+}
+
+.fg-steelblue {
+    color: steelblue;
+}
+
+.bg-steelblue {
+    color: white;
+    background-color: steelblue;
 }
 
 .skill-badge {
