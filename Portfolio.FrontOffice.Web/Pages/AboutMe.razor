@@ -1,21 +1,77 @@
 ﻿@attribute [Route("/" + Portfolio.FrontOffice.Web.Routing.WebRoutes.AboutMe)]
 
-<h3 class="standard-margin">Who am I?</h3>
+<h3 class="standard-margin">Summary</h3>
 <p>
     Dennis is a full-stack .NET developer who, while not necessarily "passionate" about software development, is driven, has goals and gets the job done.
-    He has @DateHelper.GetYearsBetween(DateTime.Parse("2014-06-02"), DateTime.Today) years experience with professional software development. He has worked with advertisement, banking, VR-gaming and government agencies.
-    <br /><br />When Dennis isn't working, he's busy piloting powerless aircraft above the lakes and woods of Södermanland.
-    He spends his summers on Vängsö Airfield, where he teaches ground operations, materials handling and airport safety to aspiring glider pilots. During winter he schedules people for maintenance on a specific aircraft.
+    Dennis has much experience working with IT within advertisement, banking, VR-gaming and government agencies.
 </p>
-<h3>Full-stack .NET developer</h3>
 <p>
-
+    When Dennis isn't working, he's busy piloting powerless aircraft above the lakes and woods of Södermanland.
+    He spends his summers on Vängsö Airfield, where he teaches ground operations, materials handling and airport safety to aspiring glider pilots.
+    During winter he schedules people for maintenance on a specific aircraft.
 </p>
-<h3></h3>
-<p>
-
-</p>
+<h3>Experience</h3>
+@foreach (var exp in experience)
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h5>@exp.Name @exp.StartDate - @exp.EndDate</h5>
+        </div>
+        <div class="col-md-8">
+            <p>
+                @exp.CompanyDescription
+            </p>
+            <p>
+                @exp.RoleDescription
+            </p>
+        </div>
+    </div>
+}
 
 @code {
+    private class ExperienceModel
+    {
+        public string Name { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string CompanyDescription { get; set; }
+        public string RoleDescription { get; set; }
+    }
 
+    private ExperienceModel[] experience =
+    {
+        new ExperienceModel
+        {
+            Name = "Sopra Steria",
+            StartDate = "2018-03",
+            EndDate = "",
+            CompanyDescription = "Sopra Steria is a french multi-national IT-consultancy firm.",
+            RoleDescription = "As a full-stack .NET consultant, Dennis has been involved in several projects, both in-house and on-site, for customers like Kammarkollegiet, Rovio Entertainment (famous for Angry Birds) and Tandvårdsförvaltningen Region Stockholm, Region Västmanland and Region Dalarna. Dennis has also done lectures for Sopra Sterias graduates within Unity3D programming, and Test Driven Development (TDD)."
+        },
+        new ExperienceModel
+        {
+            Name = "SVRVIVE Studios",
+            StartDate = "2016-08",
+            EndDate = "2018-03",
+            CompanyDescription = "SVRVIVE Studios (now Antler Interactive) is a small game studio which was initially focused on VR gaming. The studio has created games like SVRVIVE - The Deus Helix, Kartong - Death By Cardboard! and Krystal Kart AR.",
+            RoleDescription = "As a VR-developer, Dennis helped finish and release SVRVIVE Studios first game (SVRVIVE - The Deus Helix) and helped bring the game to the chinese markets through Viveport. Additionally, since the company was so small, Dennis took the opportunity to handle much of the studios IT-infrastructure and also tried a short tenure as a producer for an unreleased game."
+        },
+        new ExperienceModel
+        {
+            Name = "Cybercom Group",
+            StartDate = "2016-05",
+            EndDate = "2016-08",
+            CompanyDescription = "Cybercom Group is a swedish IT-consultancy firm.",
+            RoleDescription = "Dennis was briefly assigned to CrossKey as a Java consultant, where he helped the Cards and Loans team develop new functionality and create regression tests with Selenium, to ensure web-flows work as intended."
+        },
+        new ExperienceModel
+        {
+            Name = "Adssets",
+            StartDate = "2014-06",
+            EndDate = "2016-05",
+            CompanyDescription = "Adssets is a small company that creates and serves rich-media advertisements on web publications.",
+            RoleDescription = "With this employment, Dennis was thrust into the programming world with a bang. Due to the company's small size, Dennis seized the opportunity to get busy working with several apps, as well as the server infrastructure that ran the apps."
+        }
+    };
 }
