@@ -19,7 +19,7 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         public ReadOnlyRepositoryTests()
         {
             var options = new DbContextOptionsBuilder<AnyDbContext>()
-                .UseInMemoryDatabase("AnyDb")
+                .UseInMemoryDatabase(nameof(ReadOnlyRepositoryTests))
                 .Options;
             _dbContext = new AnyDbContext(options);
             _logger = A.Fake<ILogger>();
@@ -28,11 +28,7 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
 
         public void Dispose()
         {
-            foreach (var entity in _dbContext.AnyEntities)
-            {
-                _dbContext.AnyEntities.Remove(entity);
-            }
-            _dbContext.SaveChanges();
+            _dbContext.DisposeAllMocks();
         }
 
         [Fact]
@@ -45,12 +41,13 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                     Id = 1,
                     AnyString = "Any"
                 },
-                new AnyEntity {
+                new AnyEntity 
+                {
                     Id = 2,
                     AnyString = "Any"
                 }
             };
-            MockDbContextWith(expected);
+            _dbContext.MockWith(expected);
 
             var actual = _repository.GetAll();
 
@@ -58,7 +55,7 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         }
 
         [Fact]
-        public void Get_AnyId_ReturnsEntityWithId()
+        public void Get_ExistingId_ReturnsEntityWithId()
         {
             var expected = new List<AnyEntity>
             {
@@ -72,17 +69,34 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                     AnyString = "Any"
                 }
             };
-            MockDbContextWith(expected);
+            _dbContext.MockWith(expected);
 
             var actual = _repository.Get(1);
 
             actual.Single().Should().BeEquivalentTo(expected.First());
         }
 
-        private void MockDbContextWith(IEnumerable<AnyEntity> entities)
+
+        [Fact]
+        public void Get_NonExistingId_ReturnsEmptyQueryable()
         {
-            _dbContext.AnyEntities.AddRange(entities);
-            _dbContext.SaveChanges();
+            var expected = new List<AnyEntity>
+            {
+                new AnyEntity
+                {
+                    Id = 1,
+                    AnyString = "Any"
+                },
+                new AnyEntity {
+                    Id = 2,
+                    AnyString = "Any"
+                }
+            };
+            _dbContext.MockWith(expected);
+
+            var actual = _repository.Get(3);
+
+            actual.Should().BeEmpty();
         }
     }
 }
