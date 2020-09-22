@@ -30,6 +30,20 @@ namespace Portfolio.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging(config =>
+            {
+                config.ClearProviders();
+
+                config.AddConfiguration(Configuration.GetSection("Logging"));
+                config.AddDebug();
+                config.AddEventSourceLogger();
+
+                if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == Environments.Development)
+                {
+                    config.AddConsole();
+                }
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsPolicy, builder =>

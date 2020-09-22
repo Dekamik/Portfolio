@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice.Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Common.Core", "Portfolio.Common.Core\Portfolio.Common.Core.csproj", "{8734E00B-B50D-4EFA-A457-0D73683E9D3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Core", "Portfolio.Common.Core\Portfolio.Common.Core.csproj", "{8734E00B-B50D-4EFA-A457-0D73683E9D3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
