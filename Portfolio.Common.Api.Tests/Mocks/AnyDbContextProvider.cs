@@ -1,18 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Portfolio.Common.Api.Tests.Mocks
 {
-    public class AnyDbContextFixture : IDisposable
+    public class AnyDbContextProvider : IDisposable
     {
         public AnyDbContext DbContext { get; set; } 
 
-        public AnyDbContextFixture()
+        public AnyDbContextProvider(string DbName)
         {
             var options = new DbContextOptionsBuilder<AnyDbContext>()
-                .UseInMemoryDatabase("AnyDb")
+                .UseInMemoryDatabase(DbName)
                 .Options;
             DbContext = new AnyDbContext(options);
         }

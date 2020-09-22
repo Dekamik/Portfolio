@@ -3,37 +3,26 @@ using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Portfolio.Common.Api.Tests.Mocks;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
 namespace Portfolio.Common.Api.Tests.BaseRepositories
 {
-    public class ReadOnlyRepositoryTests : IDisposable
+    public class ReadOnlyRepositoryTests
     {
         private readonly ILogger _logger;
-        private readonly AnyDbContext _dbContext;
-        private readonly AnyReadOnlyRepository _repository;
 
         public ReadOnlyRepositoryTests()
         {
-            var options = new DbContextOptionsBuilder<AnyDbContext>()
-                .UseInMemoryDatabase(nameof(ReadOnlyRepositoryTests))
-                .Options;
-            _dbContext = new AnyDbContext(options);
             _logger = A.Fake<ILogger>();
-            _repository = new AnyReadOnlyRepository(_dbContext, _logger);
-        }
-
-        public void Dispose()
-        {
-            _dbContext.DisposeAllMocks();
         }
 
         [Fact]
         public void GetAll_Default_ReturnsAll()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(GetAll_Default_ReturnsAll));
+            var repository = new AnyReadOnlyRepository(dbContext.DbContext, _logger);
             var expected = new List<AnyEntity>
             {
                 new AnyEntity
@@ -47,9 +36,9 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                     AnyString = "Any"
                 }
             };
-            _dbContext.MockWith(expected);
+            dbContext.Mock(expected.ToArray());
 
-            var actual = _repository.GetAll();
+            var actual = repository.GetAll();
 
             actual.Should().BeEquivalentTo(expected);
         }
@@ -57,6 +46,8 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         [Fact]
         public void Get_ExistingId_ReturnsEntityWithId()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Get_ExistingId_ReturnsEntityWithId));
+            var repository = new AnyReadOnlyRepository(dbContext.DbContext, _logger);
             var expected = new List<AnyEntity>
             {
                 new AnyEntity
@@ -69,9 +60,9 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                     AnyString = "Any"
                 }
             };
-            _dbContext.MockWith(expected);
+            dbContext.Mock(expected.ToArray());
 
-            var actual = _repository.Get(1);
+            var actual = repository.Get(1);
 
             actual.Single().Should().BeEquivalentTo(expected.First());
         }
@@ -80,6 +71,8 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         [Fact]
         public void Get_NonExistingId_ReturnsEmptyQueryable()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Get_NonExistingId_ReturnsEmptyQueryable));
+            var repository = new AnyReadOnlyRepository(dbContext.DbContext, _logger);
             var expected = new List<AnyEntity>
             {
                 new AnyEntity
@@ -92,9 +85,9 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                     AnyString = "Any"
                 }
             };
-            _dbContext.MockWith(expected);
+            dbContext.Mock(expected.ToArray());
 
-            var actual = _repository.Get(3);
+            var actual = repository.Get(3);
 
             actual.Should().BeEmpty();
         }

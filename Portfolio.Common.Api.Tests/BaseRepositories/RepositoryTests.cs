@@ -1,86 +1,90 @@
 ﻿using FakeItEasy;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Portfolio.Common.Api.Tests.Mocks;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Portfolio.Common.Api.Tests.BaseRepositories
 {
-    public class RepositoryTests : IClassFixture<AnyDbContextFixture>
+    public class RepositoryTests
     {
         private readonly ILogger _logger;
-        private readonly AnyDbContextFixture _dbContextFixture;
-        private readonly AnyRepository _repository;
 
-        public RepositoryTests(AnyDbContextFixture dbContextFixture)
+        public RepositoryTests()
         {
             _logger = A.Fake<ILogger>();
-            _dbContextFixture = dbContextFixture;
-            _repository = new AnyRepository(dbContextFixture.DbContext, _logger);
         }
 
         [Fact]
-        public async void Create_AnyEntity_EntityCreated()
+        public async Task Create_AnyEntity_EntityCreated()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Create_AnyEntity_EntityCreated));
+            var repository = new AnyRepository(dbContext.DbContext, _logger);
             var expected = new AnyEntity
             {
                 AnyString = "AnyString"
             };
 
-            await _repository.Create(expected);
-            await _repository.SaveChanges();
+            await repository.Create(expected);
+            await repository.SaveChanges();
 
-            var actual = _repository.GetAll();
+            var actual = repository.GetAll();
 
             actual.Single().AnyString.Should().Be(expected.AnyString);
         }
 
         [Fact]
-        public async void Create_ExistingEntity_ThrowsArgumentException()
+        public async Task Create_ExistingEntity_ThrowsArgumentException()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Create_ExistingEntity_ThrowsArgumentException));
+            var repository = new AnyRepository(dbContext.DbContext, _logger);
             var entity = new AnyEntity
             {
                 Id = 1,
                 AnyString = "AnyString"
             };
-            _dbContextFixture.Mock(entity);
+            dbContext.Mock(entity);
             
-            await _repository.Create(entity);
+            await repository.Create(entity);
 
-            await _repository.Invoking(r => r.SaveChanges()).Should().ThrowAsync<ArgumentException>();
+            await repository.Invoking(r => r.SaveChanges()).Should().ThrowAsync<ArgumentException>();
         }
 
         [Fact]
-        public async void Create_AnyEntityWithAutoSave_EntityCreated()
+        public async Task Create_AnyEntityWithAutoSave_EntityCreated()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Create_AnyEntityWithAutoSave_EntityCreated));
+            var repository = new AnyRepository(dbContext.DbContext, _logger);
             var expected = new AnyEntity
             {
                 AnyString = "AnyString"
             };
-            _repository.AutoSave = true;
+            repository.AutoSave = true;
 
-            await _repository.Create(expected);
+            await repository.Create(expected);
 
-            var actual = _repository.GetAll();
+            var actual = repository.GetAll();
 
             actual.Single().AnyString.Should().Be(expected.AnyString);
         }
 
         [Fact]
-        public async void Create_ExistingEntityWithAutoSave_ThrowsArgumentException()
+        public async Task Create_ExistingEntityWithAutoSave_ThrowsArgumentException()
         {
+            using var dbContext = new AnyDbContextProvider(nameof(Create_ExistingEntityWithAutoSave_ThrowsArgumentException));
+            var repository = new AnyRepository(dbContext.DbContext, _logger);
             var entity = new AnyEntity
             {
                 Id = 1,
                 AnyString = "AnyString"
             };
-            _dbContextFixture.Mock(entity);
-            _repository.AutoSave = true;
+            dbContext.Mock(entity);
+            repository.AutoSave = true;
 
-            await _repository.Invoking(r => r.Create(entity)).Should().ThrowAsync<ArgumentException>();
+            await repository.Invoking(r => r.Create(entity)).Should().ThrowAsync<ArgumentException>();
         }
     }
 }
