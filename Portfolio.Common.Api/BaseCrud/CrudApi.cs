@@ -63,14 +63,7 @@ namespace Portfolio.Common.Api.BaseCrud
                 if (_logger.IsEnabled(LogLevel.Debug))
                     _logger.LogDebug($"{nameof(Delete)} endpoint for {nameof(TRepository)} ({nameof(TEntity)}) called.");
 
-                TEntity entity = _repository.Get(id).SingleOrDefault();
-
-                if (entity == default)
-                {
-                    return NotFound();
-                }
-
-                await _repository.Delete(entity);
+                await _repository.Delete(id);
                 return Ok();
             }
             catch (Exception ex)

@@ -43,7 +43,12 @@ namespace Portfolio.Common.Api.BaseRepositories
                 if (_logger.IsEnabled(LogLevel.Debug))
                     _logger.LogDebug($"Updating {nameof(TEntity)} with Id {string.Join(",", entity.Select(e => e.Id))}");
 
-                _set.UpdateRange(entity);
+                var existingEntities = _set.Where(e => entity.Select(n => n.Id).Contains(e.Id));
+                foreach (var e in existingEntities)
+                {
+                    e.Copy(entity.SingleOrDefault(n => n.Id == e.Id));
+                }
+
                 await CheckAutoSave();
             }
             catch (Exception ex)
@@ -53,14 +58,15 @@ namespace Portfolio.Common.Api.BaseRepositories
             }
         }
 
-        public async Task Delete(params TEntity[] entity)
+        public async Task Delete(params int[] id)
         {
             try
             {
                 if (_logger.IsEnabled(LogLevel.Debug))
-                    _logger.LogDebug($"Deleting {nameof(TEntity)} with Id {string.Join(",", entity.Select(e => e.Id))}");
+                    _logger.LogDebug($"Deleting {nameof(TEntity)} with Id {string.Join(",", id)}");
 
-                _set.RemoveRange(entity);
+                var entities = _set.Where(e => id.Contains(e.Id));
+                _set.RemoveRange(entities);
                 await CheckAutoSave();
             }
             catch (Exception ex)

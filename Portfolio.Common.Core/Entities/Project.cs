@@ -38,5 +38,20 @@ namespace Portfolio.Common.Core.Entities
         public Employer Employer { get; set; }
 
         public virtual List<ProjectSkill> ProjectSkills { get; set; }
+
+        public override void Copy(BaseEntity other)
+        {
+            Project otherProject = other as Project;
+            Name = otherProject.Name;
+            Role = otherProject.Role;
+            Description = otherProject.Description;
+            Category = otherProject.Category;
+            StartDate = otherProject.StartDate;
+            EndDate = otherProject.EndDate;
+            IsHighlighted = otherProject.IsHighlighted;
+            Show = otherProject.Show;
+            Customer = otherProject.Customer;
+            EmployerId = otherProject.EmployerId;
+        }
     }
 }

@@ -11,5 +11,10 @@ namespace Portfolio.Common.Core.Entities
         public int SkillId { get; set; }
 
         public Skill Skill { get; set; }
+
+        public override void Copy(BaseEntity other)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

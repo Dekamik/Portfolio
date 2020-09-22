@@ -10,5 +10,11 @@ namespace Portfolio.Common.Core.Entities
         public string Name { get; set; }
 
         public virtual List<ProjectSkill> ProjectTechnologies { get; set; }
+
+        public override void Copy(BaseEntity other)
+        {
+            Skill otherSkill = other as Skill;
+            Name = otherSkill.Name;
+        }
     }
 }
