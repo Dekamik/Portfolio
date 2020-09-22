@@ -13,6 +13,6 @@ namespace Portfolio.Common.Api.BaseRepositories
 
         Task Delete(params TEntity[] entity);
 
-        Task SaveChanges(TEntity[] entity);
+        Task SaveChanges();
     }
 }

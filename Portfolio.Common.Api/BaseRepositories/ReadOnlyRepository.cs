@@ -22,7 +22,7 @@ namespace Portfolio.Common.Api.BaseRepositories
             _logger = logger;
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Portfolio.Common.Api.BaseRepositories
             }
         }
 
-        public IQueryable<TEntity> Get(params int[] id)
+        public virtual IQueryable<TEntity> Get(params int[] id)
         {
             try
             {

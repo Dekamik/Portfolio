@@ -74,9 +74,7 @@ namespace Portfolio.Common.Api.BaseRepositories
         {
             try
             {
-                if (_logger.IsEnabled(LogLevel.Trace))
-                    _logger.LogDebug($"Persisting changes asynchronously");
-
+                _logger.LogDebug($"Persisting changes asynchronously");
                 await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -92,9 +90,7 @@ namespace Portfolio.Common.Api.BaseRepositories
             {
                 if (AutoSave)
                 {
-                    if (_logger.IsEnabled(LogLevel.Trace))
-                        _logger.LogDebug("Autosaving");
-
+                    _logger.LogDebug("Autosaving");
                     await SaveChanges();
                 }
             }
