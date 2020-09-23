@@ -66,6 +66,30 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
             actual.Single().Should().BeEquivalentTo(expected.First());
         }
 
+        [Fact]
+        public void Get_MultipleIds_ReturnsEntities()
+        {
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Get_MultipleIds_ReturnsEntities));
+            var repository = new AnyReadOnlyRepository(dbContextProvider.DbContext, _logger);
+            var expected = new []
+            {
+                new AnyEntity
+                {
+                    Id = 1,
+                    AnyString = "Any"
+                },
+                new AnyEntity {
+                    Id = 2,
+                    AnyString = "Any"
+                }
+            };
+            dbContextProvider.Mock(expected);
+            dbContextProvider.Mock(new AnyEntity { Id = 3, AnyString = "Any" });
+
+            var actual = repository.Get(1, 2);
+
+            actual.Should().BeEquivalentTo(expected);
+        }
 
         [Fact]
         public void Get_NonExistingId_ReturnsEmptyQueryable()

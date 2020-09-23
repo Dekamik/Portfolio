@@ -44,6 +44,12 @@ namespace Portfolio.Common.Api.BaseRepositories
                     _logger.LogDebug($"Updating {nameof(TEntity)} with Id {string.Join(",", entity.Select(e => e.Id))}");
 
                 var existingEntities = _set.Where(e => entity.Select(n => n.Id).Contains(e.Id));
+                if (existingEntities.Count() != entity.Count())
+                {
+                    var missingIds = entity.Select(e => e.Id).Where(id => !existingEntities.Select(ee => ee.Id).Contains(id));
+                    _logger.LogWarning($"Couldn't find {nameof(TEntity)} with Id {string.Join(",", missingIds)} for update");
+                }
+
                 foreach (var e in existingEntities)
                 {
                     e.Copy(entity.SingleOrDefault(n => n.Id == e.Id));
@@ -66,6 +72,12 @@ namespace Portfolio.Common.Api.BaseRepositories
                     _logger.LogDebug($"Deleting {nameof(TEntity)} with Id {string.Join(",", id)}");
 
                 var entities = _set.Where(e => id.Contains(e.Id));
+                if (entities.Count() != id.Length)
+                {
+                    var missingIds = id.Where(i => !entities.Select(e => e.Id).Contains(i));
+                    _logger.LogWarning($"Couldn't find {nameof(TEntity)} with Id {string.Join(",", missingIds)} for deletion");
+                }
+
                 _set.RemoveRange(entities);
                 await CheckAutoSave();
             }

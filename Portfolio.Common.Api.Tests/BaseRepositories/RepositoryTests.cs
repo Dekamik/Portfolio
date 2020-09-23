@@ -37,23 +37,6 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         }
 
         [Fact]
-        public async Task Create_ExistingEntity_ThrowsArgumentException()
-        {
-            using var dbContextProvider = new AnyDbContextProvider(nameof(Create_ExistingEntity_ThrowsArgumentException));
-            var repository = new AnyRepository(dbContextProvider.DbContext, _logger);
-            var entity = new AnyEntity
-            {
-                Id = 1,
-                AnyString = "AnyString"
-            };
-            dbContextProvider.Mock(entity);
-            
-            await repository.Create(entity);
-
-            await repository.Invoking(r => r.SaveChanges()).Should().ThrowAsync<ArgumentException>();
-        }
-
-        [Fact]
         public async Task Create_AnyEntityWithAutoSave_EntityCreated()
         {
             using var dbContextProvider = new AnyDbContextProvider(nameof(Create_AnyEntityWithAutoSave_EntityCreated));
@@ -72,9 +55,9 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         }
 
         [Fact]
-        public async Task Create_ExistingEntityWithAutoSave_ThrowsArgumentException()
+        public async Task Create_ExistingEntity_ThrowsArgumentException()
         {
-            using var dbContextProvider = new AnyDbContextProvider(nameof(Create_ExistingEntityWithAutoSave_ThrowsArgumentException));
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Create_ExistingEntity_ThrowsArgumentException));
             var repository = new AnyRepository(dbContextProvider.DbContext, _logger);
             var entity = new AnyEntity
             {
@@ -82,9 +65,35 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
                 AnyString = "AnyString"
             };
             dbContextProvider.Mock(entity);
-            repository.AutoSave = true;
+            
+            await repository.Create(entity);
 
-            await repository.Invoking(r => r.Create(entity)).Should().ThrowAsync<ArgumentException>();
+            await repository.Invoking(r => r.SaveChanges()).Should().ThrowAsync<ArgumentException>();
+        }
+
+        [Fact]
+        public async Task Create_MultipleEntities_CreatesEntities()
+        {
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Create_MultipleEntities_CreatesEntities));
+            var repository = new AnyRepository(dbContextProvider.DbContext, _logger);
+            var expected = new[]
+            {
+                new AnyEntity
+                {
+                    AnyString = "FirstEntity"
+                },
+                new AnyEntity
+                {
+                    AnyString = "SecondEntity"
+                }
+            };
+
+            await repository.Create(expected);
+            await repository.SaveChanges();
+            var actual = repository.GetAll();
+
+            actual.First().AnyString.Should().Be(expected.First().AnyString);
+            actual.Last().AnyString.Should().BeEquivalentTo(expected.Last().AnyString);
         }
 
         [Fact]
@@ -113,7 +122,7 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         [Fact]
         public async Task Update_ExistingEntityWithAutoSave_EntityUpdated()
         {
-            using var dbContextProvider = new AnyDbContextProvider(nameof(Update_ExistingEntity_EntityUpdated));
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Update_ExistingEntityWithAutoSave_EntityUpdated));
             var repository = new AnyRepository(dbContextProvider.DbContext, _logger)
             {
                 AutoSave = true
@@ -133,6 +142,41 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
             var actual = repository.Get(1);
 
             actual.Single().Should().BeEquivalentTo(expected);
+        }
+
+        [Fact]
+        public async Task Update_MultipleEntities_EntitiesUpdated()
+        {
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Update_MultipleEntities_EntitiesUpdated));
+            var repository = new AnyRepository(dbContextProvider.DbContext, _logger);
+            dbContextProvider.Mock(new AnyEntity
+            {
+                Id = 1,
+                AnyString = "AnyString"
+            },
+            new AnyEntity
+            {
+                Id = 2,
+                AnyString = "AnyString"
+            });
+            var expected = new[] {
+                new AnyEntity
+                {
+                    Id = 1,
+                    AnyString = "AnyNewString"
+                },
+                new AnyEntity
+                {
+                    Id = 2,
+                    AnyString = "AnyNewString"
+                }
+            };
+            
+            await repository.Update(expected);
+            var actual = repository.Get(1, 2);
+            await repository.SaveChanges();
+
+            actual.Should().BeEquivalentTo(expected);
         }
 
         [Fact]
@@ -162,9 +206,37 @@ namespace Portfolio.Common.Api.Tests.BaseRepositories
         }
 
         [Fact]
-        public async Task Delete_MultipleEntities_EntitiesDeleted()
+        public async Task Delete_ExistingEntityWithAutoSave_EntityDeleted()
         {
             using var dbContextProvider = new AnyDbContextProvider(nameof(Delete_ExistingEntity_EntityDeleted));
+            var repository = new AnyRepository(dbContextProvider.DbContext, _logger)
+            {
+                AutoSave = true
+            };
+            var entities = new[] {
+                new AnyEntity
+                {
+                    Id = 1,
+                    AnyString = "AnyString"
+                },
+                new AnyEntity
+                {
+                    Id = 2,
+                    AnyString = "AnyString"
+                }
+            };
+            dbContextProvider.Mock(entities);
+
+            await repository.Delete(1);
+            var actual = repository.GetAll();
+
+            actual.Single().Should().BeEquivalentTo(entities.Last());
+        }
+
+        [Fact]
+        public async Task Delete_MultipleEntities_EntitiesDeleted()
+        {
+            using var dbContextProvider = new AnyDbContextProvider(nameof(Delete_MultipleEntities_EntitiesDeleted));
             var repository = new AnyRepository(dbContextProvider.DbContext, _logger);
             var entities = new[] {
                 new AnyEntity
