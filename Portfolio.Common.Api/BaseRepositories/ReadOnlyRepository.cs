@@ -22,16 +22,32 @@ namespace Portfolio.Common.Api.BaseRepositories
             _logger = logger;
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
-            _logger.LogDebug($"Getting all {nameof(TEntity)}");
-            return _set;
+            try
+            {
+                _logger.LogDebug($"Getting all {nameof(TEntity)}");
+                return _set;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+                throw;
+            }
         }
 
-        public IQueryable<TEntity> Get(params int[] id)
+        public virtual IQueryable<TEntity> Get(params int[] id)
         {
-            _logger.LogDebug($"Getting {nameof(TEntity)} with Id {string.Join(",", id)}");
-            return GetAll().Where(e => id.Contains(e.Id));
+            try
+            {
+                _logger.LogDebug($"Getting {nameof(TEntity)} with Id {string.Join(",", id)}");
+                return GetAll().Where(e => id.Contains(e.Id));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+                throw;
+            }
         }
     }
 }

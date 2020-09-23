@@ -22,5 +22,15 @@ namespace Portfolio.Common.Core.Entities
         public string RoleDescription { get; set; }
 
         public virtual List<Project> Projects { get; set; }
+
+        public override void Copy(BaseEntity other)
+        {
+            var otherEmployer = other as Employer;
+            Name = otherEmployer.Name;
+            StartDate = otherEmployer.StartDate;
+            EndDate = otherEmployer.EndDate;
+            EmployerDescription = otherEmployer.EmployerDescription;
+            RoleDescription = otherEmployer.EmployerDescription;
+        }
     }
 }

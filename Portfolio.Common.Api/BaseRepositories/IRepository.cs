@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Portfolio.Common.Api.BaseRepositories
 {
@@ -11,8 +8,8 @@ namespace Portfolio.Common.Api.BaseRepositories
 
         Task Update(params TEntity[] entity);
 
-        Task Delete(params TEntity[] entity);
+        Task Delete(params int[] id);
 
-        Task SaveChanges(TEntity[] entity);
+        Task SaveChanges();
     }
 }

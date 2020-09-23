@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,30 +19,58 @@ namespace Portfolio.Common.Api.BaseCrud
         [HttpPost]
         public async Task<IActionResult> Create(TEntity entity)
         {
-            await _repository.Create(entity);
-            return Ok();
+            try
+            {
+                if (_logger.IsEnabled(LogLevel.Debug))
+                    _logger.LogDebug($"{nameof(Create)} endpoint for {nameof(TRepository)} ({nameof(TEntity)}) called.");
+
+                await _repository.Create(entity);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+                throw;
+            }
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(TEntity entity)
         {
-            await _repository.Update(entity);
-            return Ok();
+            try
+            {
+                if (_logger.IsEnabled(LogLevel.Debug))
+                    _logger.LogDebug($"{nameof(Update)} endpoint for {nameof(TRepository)} ({nameof(TEntity)}) called.");
+
+                await _repository.Update(entity);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+                throw;
+            }
         }
 
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            TEntity entity = _repository.Get(id).SingleOrDefault();
-
-            if (entity == default)
+            try
             {
-                return NotFound();
-            }
+                if (_logger.IsEnabled(LogLevel.Debug))
+                    _logger.LogDebug($"{nameof(Delete)} endpoint for {nameof(TRepository)} ({nameof(TEntity)}) called.");
 
-            await _repository.Delete(entity);
-            return Ok();
+                await _repository.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+                throw;
+            }
         }
     }
 }
