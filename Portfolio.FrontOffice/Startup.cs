@@ -83,5 +83,13 @@ namespace Portfolio.FrontOffice
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
+
+        public void ApplyMigrations(PortfolioDbContext context)
+        {
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+            }
+        }
     }
 }

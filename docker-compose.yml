@@ -9,7 +9,8 @@ services:
     depends_on:
       - portfolio.database
   portfolio.database:
+    container_name: db
     image: "mcr.microsoft.com/mssql/server"
     environment:
-      SA_PASSWORD: "adminadmin"
+      SA_PASSWORD: "4dm!nAdmin"
       ACCEPT_EULA: "Y"
