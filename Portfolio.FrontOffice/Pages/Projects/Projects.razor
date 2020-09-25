@@ -1,0 +1,25 @@
+﻿@attribute [Route("/" + WebRoutes.Projects)]
+@using Portfolio.FrontOffice.Pages.Projects
+@inject Portfolio.FrontOffice.Data.ProjectService Service
+
+<Spinner IsLoading=@isLoading>
+    @foreach (var project in projectModels)
+    {
+        @if (project.Show)
+        {
+            <ProjectCard ProjectModel=@project />
+        }
+    }
+</Spinner>
+
+@code {
+    private bool isLoading = true;    
+
+    private IEnumerable<ProjectModel> projectModels;
+
+    protected override void OnInitialized()
+    {
+        projectModels = Service.GetProjects();
+        isLoading = false;
+    }
+}

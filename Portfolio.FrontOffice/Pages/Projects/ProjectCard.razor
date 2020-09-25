@@ -1,0 +1,22 @@
+﻿<div class="card project-card">
+    <div class="card-header bg-steelblue">
+        @(ProjectModel.Category == ProjectCategory.FreeTime ? ProjectModel.Category.GetDisplayName() : ProjectModel.Employer)
+        <span class="float-right">@ProjectModel.StartDate.ToString("yyyy-MM") - @(ProjectModel.EndDate?.ToString("yyyy-MM") ?? "today")</span>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@ProjectModel.Name @(!string.IsNullOrEmpty(ProjectModel.Customer) ? $"at {ProjectModel.Customer}" : "")</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@ProjectModel.Role</h6>
+        <p class="card-text">@ProjectModel.Description</p>
+    </div>
+    <div class="card-footer">
+        @foreach (var skill in ProjectModel.Skills)
+        {
+            <span class="badge skill-badge bg-steelblue">@skill</span>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public ProjectModel ProjectModel { get; set; }
+}

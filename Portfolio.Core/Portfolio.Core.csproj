@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20200917111343_ConvertedIQueryableNavigationPropertiesToList.Designer.cs" />
     <Compile Remove="Migrations\20200918155754_Test.cs" />
     <Compile Remove="Migrations\20200918155754_Test.Designer.cs" />
+    <Compile Remove="Migrations\20200922194212_test.cs" />
+    <Compile Remove="Migrations\20200922194212_test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

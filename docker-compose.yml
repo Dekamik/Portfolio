@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  portfolio.frontoffice:
+    image: ${DOCKER_REGISTRY-}portfoliofrontoffice
+    build:
+      context: .
+      dockerfile: Portfolio.FrontOffice/Dockerfile
