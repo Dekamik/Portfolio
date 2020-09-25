@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: Portfolio.FrontOffice/Dockerfile
+    depends_on:
+      - portfolio.database
+  portfolio.database:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "adminadmin"
+      ACCEPT_EULA: "Y"
