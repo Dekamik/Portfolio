@@ -36,3 +36,15 @@ steps:
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Private Azure subscription (b679d450-1111-4d6c-a71f-1ada6cd96789)'
+    appType: 'webAppLinux'
+    WebAppName: 'dvb-portfolio'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'Portfolio'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|3.1'
+    StartupCommand: 'dotnet Portfolio.Web\bin\Debug\netstandard2.1\Portfolio.Web.dll'
