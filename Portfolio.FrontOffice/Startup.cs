@@ -49,7 +49,9 @@ namespace Portfolio.FrontOffice
             });
 
             services.AddDbContext<PortfolioDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Portfolio")));
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("Portfolio"),
+                    options => options.MigrationsAssembly("Portfolio.Core")));
 
             services.AddScoped<IProjectReadOnlyRepository, ProjectReadOnlyRepository>();
             services.AddScoped<IEmployerReadOnlyRepository, EmployerReadOnlyRepository>();
@@ -82,13 +84,16 @@ namespace Portfolio.FrontOffice
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
-        }
 
-        public void ApplyMigrations(PortfolioDbContext context)
-        {
-            if (context.Database.GetPendingMigrations().Any())
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                context.Database.Migrate();
+                using (var context = serviceScope.ServiceProvider.GetService<PortfolioDbContext>())
+                {
+                    if (context.Database.GetPendingMigrations().Any())
+                    {
+                        context.Database.Migrate();
+                    }
+                }
             }
         }
     }

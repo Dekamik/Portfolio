@@ -9,8 +9,13 @@ services:
     depends_on:
       - portfolio.database
   portfolio.database:
-    container_name: db
-    image: "mcr.microsoft.com/mssql/server"
+    container_name: portfolio.database
+    image: "postgres"
+    ports:
+      - 5432:5432
+    volumes:
+      - /var/lib/postgresql/data
     environment:
-      SA_PASSWORD: "4dm!nAdmin"
-      ACCEPT_EULA: "Y"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "adminadmin"
+      POSTGRES_DB: "Portfolio"
