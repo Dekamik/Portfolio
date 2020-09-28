@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Portfolio.Core
 {
@@ -14,16 +11,11 @@ namespace Portfolio.Core
         {
             using (var scope = host.Services.CreateScope())
             {
-                using (var context = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>())
+                using var context = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
+
+                if (context.Database.GetPendingMigrations().Any())
                 {
-                    try
-                    {
-                        context.Database.Migrate();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw;
-                    }
+                    context.Database.Migrate();
                 }
             }
 
