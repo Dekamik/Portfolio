@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Portfolio.Core.Migrations
 {
@@ -12,10 +13,12 @@ namespace Portfolio.Core.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false)
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    EmployerDescription = table.Column<string>(nullable: false),
+                    RoleDescription = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -23,16 +26,16 @@ namespace Portfolio.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Technologies",
+                name: "Skills",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Technologies", x => x.Id);
+                    table.PrimaryKey("PK_Skills", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,17 +43,17 @@ namespace Portfolio.Core.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: false),
                     Role = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     Category = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: true),
                     IsHighlighted = table.Column<bool>(nullable: false),
                     Show = table.Column<bool>(nullable: false),
                     Customer = table.Column<string>(nullable: true),
-                    EmployerId = table.Column<int>(nullable: false)
+                    EmployerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,31 +63,31 @@ namespace Portfolio.Core.Migrations
                         column: x => x.EmployerId,
                         principalTable: "Employers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProjectTechnologies",
+                name: "ProjectSkills",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ProjectId = table.Column<int>(nullable: false),
-                    TechnologyId = table.Column<int>(nullable: false)
+                    SkillId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProjectTechnologies", x => x.Id);
+                    table.PrimaryKey("PK_ProjectSkills", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProjectTechnologies_Projects_ProjectId",
+                        name: "FK_ProjectSkills_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProjectTechnologies_Technologies_TechnologyId",
-                        column: x => x.TechnologyId,
-                        principalTable: "Technologies",
+                        name: "FK_ProjectSkills_Skills_SkillId",
+                        column: x => x.SkillId,
+                        principalTable: "Skills",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -95,26 +98,26 @@ namespace Portfolio.Core.Migrations
                 column: "EmployerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProjectTechnologies_ProjectId",
-                table: "ProjectTechnologies",
+                name: "IX_ProjectSkills_ProjectId",
+                table: "ProjectSkills",
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProjectTechnologies_TechnologyId",
-                table: "ProjectTechnologies",
-                column: "TechnologyId");
+                name: "IX_ProjectSkills_SkillId",
+                table: "ProjectSkills",
+                column: "SkillId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProjectTechnologies");
+                name: "ProjectSkills");
 
             migrationBuilder.DropTable(
                 name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Technologies");
+                name: "Skills");
 
             migrationBuilder.DropTable(
                 name: "Employers");

@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   portfolio.frontoffice:
+    container_name: portfolio.frontoffice
     image: ${DOCKER_REGISTRY-}portfoliofrontoffice
     build:
       context: .
