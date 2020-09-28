@@ -1,20 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Portfolio.BusinessLogic.Employers;
+using Portfolio.BusinessLogic.Projects;
 using Portfolio.Core;
 using Portfolio.Core.Repositories.ReadOnly;
-using Portfolio.FrontOffice.Data;
-using Portfolio.FrontOffice.Data.Employers;
 
 namespace Portfolio.FrontOffice
 {
@@ -56,8 +51,8 @@ namespace Portfolio.FrontOffice
             services.AddScoped<IProjectReadOnlyRepository, ProjectReadOnlyRepository>();
             services.AddScoped<IEmployerReadOnlyRepository, EmployerReadOnlyRepository>();
 
-            services.AddScoped<ProjectService>();
-            services.AddScoped<EmployerService>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IEmployerService, EmployerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

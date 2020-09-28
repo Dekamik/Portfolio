@@ -2,9 +2,9 @@
 using Portfolio.Core.Repositories.ReadOnly;
 using System.Collections.Generic;
 
-namespace Portfolio.FrontOffice.Data.Employers
+namespace Portfolio.BusinessLogic.Employers
 {
-    public class EmployerService
+    public class EmployerService : IEmployerService
     {
         private readonly IEmployerReadOnlyRepository _repository;
 

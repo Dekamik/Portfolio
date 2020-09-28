@@ -3,11 +3,10 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Portfolio.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
-using Portfolio.FrontOffice.Data.Projects;
 
-namespace Portfolio.FrontOffice.Data
+namespace Portfolio.BusinessLogic.Projects
 {
-    public class ProjectService
+    public class ProjectService : IProjectService
     {
         private readonly IProjectReadOnlyRepository _repository;
 

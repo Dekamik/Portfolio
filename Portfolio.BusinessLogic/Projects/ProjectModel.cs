@@ -1,7 +1,7 @@
 ﻿using Portfolio.Common.Enums;
 using System;
 
-namespace Portfolio.FrontOffice.Data.Projects
+namespace Portfolio.BusinessLogic.Projects
 {
     public class ProjectModel
     {
