@@ -207,8 +207,7 @@ namespace Portfolio.Core.Data.Configurations
                 new ProjectSkill { Id = 195, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.TypeScript.Id },
                 new ProjectSkill { Id = 196, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.EFCore.Id },
                 new ProjectSkill { Id = 197, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.TSQL.Id },
-                new ProjectSkill { Id = 198, ProjectId = ProjectData.DentalCareSystems.Id, SkillId = SkillData.WebForms.Id },
-
+                new ProjectSkill { Id = 198, ProjectId = ProjectData.DentalCareSystems.Id, SkillId = SkillData.WebForms.Id }
             );
         }
     }
