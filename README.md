@@ -2,12 +2,11 @@
 
 This is my personal portfolio website. 
 
-It consists of a front office written in Blazor that fetches my CV from an 
-SQL Server database through EF Core.
+It's a Blazor Server app, with a frontend written in Blazor that communicates to the .NET Core backend using SignalR.
+The backend is supported by EF Core, which sits atop of a Postgres database.
+This application is also dockerized.
 
 I'm planning to develop a back office for this application for editing my CV.
-
-I might even implement web scraping for using LinkedIn as my master, but we'll see about this.
 
 ## FAQ
 
