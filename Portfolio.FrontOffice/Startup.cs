@@ -84,17 +84,6 @@ namespace Portfolio.FrontOffice
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
-
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                using (var context = serviceScope.ServiceProvider.GetService<PortfolioDbContext>())
-                {
-                    if (context.Database.GetPendingMigrations().Any())
-                    {
-                        context.Database.Migrate();
-                    }
-                }
-            }
         }
     }
 }

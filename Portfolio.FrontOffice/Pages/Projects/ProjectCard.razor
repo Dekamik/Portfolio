@@ -1,7 +1,7 @@
 ﻿<div class="card project-card">
     <div class="card-header bg-steelblue">
         @(ProjectModel.Category == ProjectCategory.FreeTime ? ProjectModel.Category.GetDisplayName() : ProjectModel.Employer)
-        <span class="float-right">@ProjectModel.StartDate.ToString("yyyy-MM") - @(ProjectModel.EndDate?.ToString("yyyy-MM") ?? "today")</span>
+        <span class="float-right">@ProjectModel.StartDate.ToString("yyyy-MM") - @(ProjectModel.EndDate?.ToString("yyyy-MM"))</span>
     </div>
     <div class="card-body">
         <h5 class="card-title">@ProjectModel.Name @(!string.IsNullOrEmpty(ProjectModel.Customer) ? $"at {ProjectModel.Customer}" : "")</h5>
