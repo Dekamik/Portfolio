@@ -6,5 +6,6 @@ namespace Portfolio.BusinessLogic.Projects
 {
     public interface IProjectService
     {
+        IEnumerable<ProjectModel> GetProjects();
     }
 }
