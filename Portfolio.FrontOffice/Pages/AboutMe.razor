@@ -1,0 +1,46 @@
+﻿@attribute [Route("/" + WebRoutes.AboutMe)]
+@using Portfolio.Common.Core.Entities
+@inject Portfolio.FrontOffice.Data.Employers.EmployerService Service
+
+<h3 class="standard-margin">Summary</h3>
+<p>
+    Dennis is a full-stack .NET developer who is driven, has goals and gets the job done.
+    Dennis has much experience working with IT within advertisement, banking, VR-gaming and government agencies.
+</p>
+<p>
+    When Dennis isn't working, he's busy piloting powerless aircraft above the lakes and woods of Södermanland.
+    He spends his summers on Vängsö Airfield, where he teaches ground operations, materials handling and airport safety to aspiring glider pilots.
+    During winter he schedules people for maintenance on a specific aircraft.
+</p>
+<h3>Experience</h3>
+<Spinner IsLoading=@isLoading>
+    @foreach (var exp in experience.OrderByDescending(e => e.StartDate))
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <h5>@exp.Name @exp.StartDate.ToString("yyyy-MM") - @exp.EndDate?.ToString("yyyy-MM")</h5>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    @exp.EmployerDescription
+                </p>
+                <p>
+                    @exp.RoleDescription
+                </p>
+            </div>
+        </div>
+    }
+</Spinner>
+
+@code {
+    private IEnumerable<Employer> experience;
+
+    private bool isLoading = true;
+
+    protected override void OnInitialized()
+    {
+        experience = Service.GetEmployers();
+        isLoading = false;
+    }
+}
