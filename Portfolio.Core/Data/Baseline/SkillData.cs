@@ -107,5 +107,6 @@ namespace Portfolio.Core.Data.Baseline
         public static readonly Skill ReactRouter = new Skill { Id = 101, Name = "React Router" };
         public static readonly Skill TypeScript = new Skill { Id = 102, Name = "TypeScript" };
         public static readonly Skill ReactHooks = new Skill { Id = 103, Name = "React Hooks" };
+        public static readonly Skill EFCore = new Skill { Id = 103, Name = "Entity Framework Core (EF Core)" };
     }
 }
