@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Portfolio.Common.Core.Entities;
-using Portfolio.Core.SeedData;
+using Portfolio.Core.Data.Configurations;
 
 namespace Portfolio.Core
 {
@@ -20,7 +20,10 @@ namespace Portfolio.Core
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new EmployerData());
+            modelBuilder.ApplyConfiguration(new EmployerConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectConfiguration());
+            modelBuilder.ApplyConfiguration(new SkillConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectSkillConfiguration());
         }
     }
 }
