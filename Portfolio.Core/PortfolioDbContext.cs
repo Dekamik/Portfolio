@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Portfolio.Common.Core.Entities;
+using Portfolio.Core.Entities;
 using Portfolio.Core.Data.Configurations;
 
 namespace Portfolio.Core

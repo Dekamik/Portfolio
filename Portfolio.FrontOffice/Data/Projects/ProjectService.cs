@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Portfolio.Common.Core.Entities;
+using Portfolio.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
 using Portfolio.FrontOffice.Data.Projects;
 

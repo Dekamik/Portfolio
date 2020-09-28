@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 
-namespace Portfolio.Core
+namespace Portfolio.Core.Helpers
 {
-    public static class MigrationManager
+    public static class MigrationHelper
     {
         public static IHost MigrateDatabase(this IHost host)
         {

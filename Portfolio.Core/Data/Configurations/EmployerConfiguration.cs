@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Portfolio.Common.Core.Entities;
 using Portfolio.Core.Data.Baseline;
-using System;
+using Portfolio.Core.Entities;
 
 namespace Portfolio.Core.Data.Configurations
 {

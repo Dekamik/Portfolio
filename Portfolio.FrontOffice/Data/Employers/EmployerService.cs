@@ -1,9 +1,6 @@
-﻿using Portfolio.Common.Core.Entities;
+﻿using Portfolio.Core.Entities;
 using Portfolio.Core.Repositories.ReadOnly;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Portfolio.FrontOffice.Data.Employers
 {

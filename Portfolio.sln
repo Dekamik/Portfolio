@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Core", "Portfolio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Api", "Portfolio.Common.Api\Portfolio.Common.Api.csproj", "{22D03D13-4EAA-4F58-8341-9F7AD72F0100}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Core", "Portfolio.Common.Core\Portfolio.Common.Core.csproj", "{8734E00B-B50D-4EFA-A457-0D73683E9D3F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common.Api.Tests", "Portfolio.Common.Api.Tests\Portfolio.Common.Api.Tests.csproj", "{973DDB32-DBF4-4679-AD1F-09724D80077A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.FrontOffice", "Portfolio.FrontOffice\Portfolio.FrontOffice.csproj", "{3749D162-E003-446A-8AEE-2FDD7986CE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.FrontOffice", "Portfolio.FrontOffice\Portfolio.FrontOffice.csproj", "{3749D162-E003-446A-8AEE-2FDD7986CE4D}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{20549309-680F-44A5-8814-783CD7626D38}"
 EndProject
@@ -35,10 +33,6 @@ Global
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D03D13-4EAA-4F58-8341-9F7AD72F0100}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8734E00B-B50D-4EFA-A457-0D73683E9D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{973DDB32-DBF4-4679-AD1F-09724D80077A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{973DDB32-DBF4-4679-AD1F-09724D80077A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973DDB32-DBF4-4679-AD1F-09724D80077A}.Release|Any CPU.ActiveCfg = Release|Any CPU

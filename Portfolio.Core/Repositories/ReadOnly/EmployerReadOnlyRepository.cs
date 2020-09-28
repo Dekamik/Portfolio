@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Portfolio.Common.Api.BaseRepositories;
-using Portfolio.Common.Core.Entities;
+using Portfolio.Core.Entities;
 
 namespace Portfolio.Core.Repositories.ReadOnly
 {
