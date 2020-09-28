@@ -1,4 +1,4 @@
-﻿using Portfolio.Common.Core.Entities;
+﻿using Portfolio.Core.Entities;
 using System;
 
 namespace Portfolio.Core.Data.Baseline

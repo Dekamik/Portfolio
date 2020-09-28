@@ -1,4 +1,4 @@
-﻿using Portfolio.Common.Core.Entities;
+﻿using Portfolio.Core.Entities;
 using Portfolio.Common.Enums;
 using System;
 

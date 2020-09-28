@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Portfolio.BusinessLogic\Portfolio.BusinessLogic.csproj" />
     <ProjectReference Include="..\Portfolio.Common\Portfolio.Common.csproj" />
     <ProjectReference Include="..\Portfolio.Core\Portfolio.Core.csproj" />
   </ItemGroup>

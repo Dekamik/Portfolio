@@ -9,6 +9,7 @@ services:
       dockerfile: Portfolio.FrontOffice/Dockerfile
     depends_on:
       - portfolio.database
+
   portfolio.database:
     container_name: portfolio.database
     image: "postgres"
