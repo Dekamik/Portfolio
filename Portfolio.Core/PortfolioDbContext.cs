@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Portfolio.Common.Core.Entities;
+using Portfolio.Core.SeedData;
 
 namespace Portfolio.Core
 {
@@ -16,5 +17,10 @@ namespace Portfolio.Core
         public DbSet<ProjectSkill> ProjectSkills { get; set; }
 
         public DbSet<Skill> Skills { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new EmployerData());
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Portfolio.FrontOffice
         {
             CreateHostBuilder(args)
                 .Build()
-                //.MigrateDatabase()
+                .MigrateDatabase()
                 .Run();
         }
 
