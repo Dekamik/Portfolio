@@ -1,6 +1,6 @@
 ﻿@attribute [Route("/" + WebRoutes.Projects)]
-@using Portfolio.FrontOffice.Pages.Projects
-@inject Portfolio.FrontOffice.Data.ProjectService Service
+@using Portfolio.BusinessLogic.Projects
+@inject Portfolio.BusinessLogic.Projects.IProjectService Service
 
 <Spinner IsLoading=@isLoading>
     @foreach (var project in projectModels)
