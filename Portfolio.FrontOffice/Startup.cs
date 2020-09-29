@@ -43,9 +43,26 @@ namespace Portfolio.FrontOffice
                 }
             });
 
+            string connectionString;
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == Environments.Production)
+            {
+                string dbServer = Environment.GetEnvironmentVariable("DB_SERVER");
+                string dbPort = Environment.GetEnvironmentVariable("DB_PORT") ?? "5432";
+                string dbName = Environment.GetEnvironmentVariable("DB_NAME");
+                string dbUser = Environment.GetEnvironmentVariable("DB_USER");
+                string dbPass = Environment.GetEnvironmentVariable("DB_PASS");
+                string dbSslMode = Environment.GetEnvironmentVariable("DB_SSLMODE") ?? "require";
+
+                connectionString = $"Server={dbServer};Port={dbPort};Database={dbName};Username={dbUser};Password={dbPass};SslMode={dbSslMode};";
+            }
+            else
+            {
+                connectionString = Configuration.GetConnectionString("Portfolio");
+            }
+
             services.AddDbContext<PortfolioDbContext>(options =>
                 options.UseNpgsql(
-                    Configuration.GetConnectionString("Portfolio"),
+                    connectionString,
                     options => options.MigrationsAssembly("Portfolio.Core")));
 
             services.AddScoped<IProjectReadOnlyRepository, ProjectReadOnlyRepository>();
