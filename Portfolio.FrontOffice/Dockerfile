@@ -9,9 +9,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["Portfolio.FrontOffice/Portfolio.FrontOffice.csproj", "Portfolio.FrontOffice/"]
 COPY ["Portfolio.Core/Portfolio.Core.csproj", "Portfolio.Core/"]
-COPY ["Portfolio.Common.Core/Portfolio.Common.Core.csproj", "Portfolio.Common.Core/"]
 COPY ["Portfolio.Common.Api/Portfolio.Common.Api.csproj", "Portfolio.Common.Api/"]
 COPY ["Portfolio.Common/Portfolio.Common.csproj", "Portfolio.Common/"]
+COPY ["Portfolio.BusinessLogic/Portfolio.BusinessLogic.csproj", "Portfolio.BusinessLogic/"]
 RUN dotnet restore "Portfolio.FrontOffice/Portfolio.FrontOffice.csproj"
 COPY . .
 WORKDIR "/src/Portfolio.FrontOffice"
