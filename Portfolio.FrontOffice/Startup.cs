@@ -51,9 +51,10 @@ namespace Portfolio.FrontOffice
                 string dbName = Environment.GetEnvironmentVariable("DB_NAME");
                 string dbUser = Environment.GetEnvironmentVariable("DB_USER");
                 string dbPass = Environment.GetEnvironmentVariable("DB_PASS");
-                string dbSslMode = Environment.GetEnvironmentVariable("DB_SSLMODE") ?? "require";
+                string dbSslMode = Environment.GetEnvironmentVariable("DB_SSLMODE") ?? "Require";
+                bool trustServerCertificate = Environment.GetEnvironmentVariable("DB_SSLMODE") == "true";
 
-                connectionString = $"Server={dbServer};Port={dbPort};Database={dbName};Username={dbUser};Password={dbPass};SslMode={dbSslMode};";
+                connectionString = $"Server={dbServer};Port={dbPort};Database={dbName};Username={dbUser};Password={dbPass};SslMode={dbSslMode};Trust Server Certificate={trustServerCertificate};";
             }
             else
             {
