@@ -54,17 +54,22 @@ namespace Portfolio.FrontOffice
                 string dbSslMode = Environment.GetEnvironmentVariable("DB_SSLMODE") ?? "Require";
                 bool trustServerCertificate = Environment.GetEnvironmentVariable("DB_TRUST_SERVER_CERTIFICATE") == "true";
 
-                connectionString = $"Server={dbServer};Port={dbPort};Database={dbName};Username={dbUser};Password={dbPass};SslMode={dbSslMode};Trust Server Certificate={trustServerCertificate};";
+                connectionString = $"Server={dbServer};" +
+                    $"Port={dbPort};" +
+                    $"Database={dbName};" +
+                    $"Username={dbUser};" +
+                    $"Password={dbPass};" +
+                    $"SslMode={dbSslMode};" +
+                    $"Trust Server Certificate={trustServerCertificate};";
             }
             else
             {
                 connectionString = Configuration.GetConnectionString("Portfolio");
             }
 
-            services.AddDbContext<PortfolioDbContext>(options =>
-                options.UseNpgsql(
-                    connectionString,
-                    options => options.MigrationsAssembly("Portfolio.Core")));
+            services.AddDbContext<PortfolioDbContext>(options => 
+                options.UseNpgsql(connectionString, options => 
+                    options.MigrationsAssembly("Portfolio.Core")));
 
             services.AddScoped<IProjectReadOnlyRepository, ProjectReadOnlyRepository>();
             services.AddScoped<IEmployerReadOnlyRepository, EmployerReadOnlyRepository>();
