@@ -26,7 +26,8 @@ namespace Portfolio.Core.Data.Configurations
                 ProjectData.RovioClassified1,
                 ProjectData.Smidas,
                 ProjectData.DentalCareSystems,
-                ProjectData.Libretto2
+                ProjectData.Libretto2,
+                ProjectData.PersonalPortfolio2020
             );
         }
     }

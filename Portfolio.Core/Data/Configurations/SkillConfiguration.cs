@@ -112,7 +112,16 @@ namespace Portfolio.Core.Data.Configurations
                 SkillData.AzureDevOps,
                 SkillData.ReactRouter,
                 SkillData.TypeScript,
-                SkillData.ReactHooks
+                SkillData.ReactHooks,
+                SkillData.EFCore,
+                SkillData.Docker,
+                SkillData.DockerCompose,
+                SkillData.DockerHub,
+                SkillData.DigitalOcean,
+                SkillData.AutomatedBuilds,
+                SkillData.Blazor,
+                SkillData.ComponentBasedUIDesign,
+                SkillData.DomainNameAdministration
             );
         }
     }

@@ -107,6 +107,14 @@ namespace Portfolio.Core.Data.Baseline
         public static readonly Skill ReactRouter = new Skill { Id = 101, Name = "React Router" };
         public static readonly Skill TypeScript = new Skill { Id = 102, Name = "TypeScript" };
         public static readonly Skill ReactHooks = new Skill { Id = 103, Name = "React Hooks" };
-        public static readonly Skill EFCore = new Skill { Id = 103, Name = "Entity Framework Core (EF Core)" };
+        public static readonly Skill EFCore = new Skill { Id = 104, Name = "Entity Framework Core (EF Core)" };
+        public static readonly Skill Docker = new Skill { Id = 105, Name = "Docker" };
+        public static readonly Skill DockerCompose = new Skill { Id = 106, Name = "Docker Compose" };
+        public static readonly Skill DockerHub = new Skill { Id = 107, Name = "Docker Hub" };
+        public static readonly Skill DigitalOcean = new Skill { Id = 108, Name = "Digital Ocean" };
+        public static readonly Skill AutomatedBuilds = new Skill { Id = 109, Name = "Automated Builds" };
+        public static readonly Skill Blazor = new Skill { Id = 110, Name = "Blazor" };
+        public static readonly Skill ComponentBasedUIDesign = new Skill { Id = 111, Name = "Component-based UI Design" };
+        public static readonly Skill DomainNameAdministration = new Skill { Id = 112, Name = "Domain name administration" };
     }
 }

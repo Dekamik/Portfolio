@@ -260,5 +260,20 @@ namespace Portfolio.Core.Data.Baseline
             Customer = "Tandvårdsenheten Region Stockholm",
             EmployerId = EmployerData.SopraSteria.Id
         };
+
+        public static readonly Project PersonalPortfolio2020 = new Project
+        {
+            Id = 18,
+            Name = "Personal portfolio (dennisvonbargen.com)",
+            Role = "Full-stack .NET Developer",
+            Description = "Realized my old WiX-portfolio wasn't up for the task, so I decided to build one from scratch using my skills in .NET Core.",
+            Category = ProjectCategory.FreeTime,
+            StartDate = DateTime.Parse("2020-09-15"),
+            EndDate = DateTime.Parse("2020-09-29"),
+            IsHighlighted = true,
+            Show = true,
+            Customer = null,
+            EmployerId = null
+        };
     }
 }

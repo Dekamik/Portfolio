@@ -207,7 +207,27 @@ namespace Portfolio.Core.Data.Configurations
                 new ProjectSkill { Id = 195, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.TypeScript.Id },
                 new ProjectSkill { Id = 196, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.EFCore.Id },
                 new ProjectSkill { Id = 197, ProjectId = ProjectData.Libretto2.Id, SkillId = SkillData.TSQL.Id },
-                new ProjectSkill { Id = 198, ProjectId = ProjectData.DentalCareSystems.Id, SkillId = SkillData.WebForms.Id }
+                new ProjectSkill { Id = 198, ProjectId = ProjectData.DentalCareSystems.Id, SkillId = SkillData.WebForms.Id },
+                new ProjectSkill { Id = 199, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DotNetCore.Id },
+                new ProjectSkill { Id = 200, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.EFCore.Id },
+                new ProjectSkill { Id = 201, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.PostgreSQL.Id },
+                new ProjectSkill { Id = 202, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.Docker.Id },
+                new ProjectSkill { Id = 203, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DockerCompose.Id },
+                new ProjectSkill { Id = 204, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DockerHub.Id },
+                new ProjectSkill { Id = 205, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DigitalOcean.Id },
+                new ProjectSkill { Id = 206, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.AutomatedBuilds.Id },
+                new ProjectSkill { Id = 207, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.Blazor.Id },
+                new ProjectSkill { Id = 208, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.UnitTesting.Id },
+                new ProjectSkill { Id = 209, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.Ubuntu.Id },
+                new ProjectSkill { Id = 210, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.ComponentBasedUIDesign.Id },
+                new ProjectSkill { Id = 211, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DomainNameAdministration.Id },
+                new ProjectSkill { Id = 212, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.FakeItEasy.Id },
+                new ProjectSkill { Id = 213, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.FluentAssertions.Id },
+                new ProjectSkill { Id = 214, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.MicrosoftVisualStudio.Id },
+                new ProjectSkill { Id = 215, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.Git.Id },
+                new ProjectSkill { Id = 216, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.GitExtensions.Id },
+                new ProjectSkill { Id = 217, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.GitHub.Id },
+                new ProjectSkill { Id = 218, ProjectId = ProjectData.PersonalPortfolio2020.Id, SkillId = SkillData.DatabaseModeling.Id }
             );
         }
     }
