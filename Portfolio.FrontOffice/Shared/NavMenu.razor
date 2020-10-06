@@ -1,4 +1,4 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿<div class="pl-4 navbar navbar-dark dennis-toprow">
     <a class="navbar-brand" href="">Dennis von Bargen</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -7,23 +7,23 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+        <li class="nav-item px-3 whole-row">
+            <NavLink class="nav-link whole-row" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="@WebRoutes.AboutMe">
+        <li class="nav-item px-3 whole-row">
+            <NavLink class="nav-link whole-row" href="@WebRoutes.AboutMe">
                 <span class="oi oi-person" aria-hidden="true"></span> About
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="@WebRoutes.Projects">
+        <li class="nav-item px-3 whole-row">
+            <NavLink class="nav-link whole-row" href="@WebRoutes.Projects">
                 <span class="oi oi-briefcase" aria-hidden="true"></span> Projects
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="@WebRoutes.Contact">
+        <li class="nav-item px-3 whole-row">
+            <NavLink class="nav-link whole-row" href="@WebRoutes.Contact">
                 <span class="oi oi-envelope-closed" aria-hidden="true"></span> Contact
             </NavLink>
         </li>

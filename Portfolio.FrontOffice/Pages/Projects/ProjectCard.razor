@@ -1,7 +1,7 @@
 ﻿@using Portfolio.BusinessLogic.Projects
 
-<div class="card project-card">
-    <div class="card-header bg-steelblue">
+<div class="card project-card borderless">
+    <div class="card-header bg-steelblue borderless">
         @(ProjectModel.Category == ProjectCategory.FreeTime ? ProjectModel.Category.GetDisplayName() : ProjectModel.Employer)
         <span class="float-right">@ProjectModel.StartDate.ToString("yyyy-MM") - @(ProjectModel.EndDate?.ToString("yyyy-MM"))</span>
     </div>
@@ -10,7 +10,7 @@
         <h6 class="card-subtitle mb-2 text-muted">@ProjectModel.Role</h6>
         <p class="card-text">@ProjectModel.Description</p>
     </div>
-    <div class="card-footer">
+    <div class="card-footer borderless">
         @foreach (var skill in ProjectModel.Skills)
         {
             <span class="badge skill-badge bg-steelblue">@skill</span>
