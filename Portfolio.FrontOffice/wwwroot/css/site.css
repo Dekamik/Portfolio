@@ -284,3 +284,7 @@ app {
 hr {
     border-color: steelblue;
 }
+
+.multi-line {
+    white-space: pre-line;
+}

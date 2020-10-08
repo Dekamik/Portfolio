@@ -8,7 +8,7 @@
     <div class="card-body">
         <h5 class="card-title">@ProjectModel.Name @(!string.IsNullOrEmpty(ProjectModel.Customer) ? $"at {ProjectModel.Customer}" : "")</h5>
         <h6 class="card-subtitle mb-2 text-muted">@ProjectModel.Role</h6>
-        <p class="card-text">@ProjectModel.Description</p>
+        <p class="card-text multi-line">@ProjectModel.Description</p>
     </div>
     <div class="card-footer borderless">
         @foreach (var skill in ProjectModel.Skills)
