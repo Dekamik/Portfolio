@@ -266,7 +266,7 @@ namespace Portfolio.Core.Data.Baseline
             Id = 18,
             Name = "Personal portfolio (dennisvonbargen.com)",
             Role = "Full-stack .NET Developer",
-            Description = "Realized my old WiX-portfolio wasn't up for the task, so I decided to build one from scratch using my skills in .NET Core.",
+            Description = "Dennis realized his old WiX-portfolio wasn't up for the task, so he decided to build a personal portfolio CMS from scratch in .NET Core.\n\nYou're currently looking at this project live in your browser. It's a dockerized Blazor Server website that runs on a virtual server that talks to a Postgres database cluster on DigitalOcean.\nThis page is overengineered in order to showcase Dennis' skills. He's also planning on setting up a backoffice for easier content management.\n\nThe source code is available on his GitHub.",
             Category = ProjectCategory.FreeTime,
             StartDate = DateTime.Parse("2020-09-15"),
             EndDate = DateTime.Parse("2020-09-29"),

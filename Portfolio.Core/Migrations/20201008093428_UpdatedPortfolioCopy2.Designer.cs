@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Portfolio.Core;
@@ -9,9 +10,10 @@ using Portfolio.Core;
 namespace Portfolio.Core.Migrations
 {
     [DbContext(typeof(PortfolioDbContext))]
-    partial class PortfolioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201008093428_UpdatedPortfolioCopy2")]
+    partial class UpdatedPortfolioCopy2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -363,7 +365,7 @@ namespace Portfolio.Core.Migrations
 You're currently looking at this project live in your browser. It's a dockerized Blazor Server website that runs on a virtual server that talks to a Postgres database cluster on DigitalOcean.
 This page is overengineered in order to showcase Dennis' skills. He's also planning on setting up a backoffice for easier content management.
 
-The source code is available on his GitHub.",
+The source code is available on my GitHub.",
                             EndDate = new DateTime(2020, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHighlighted = true,
                             Name = "Personal portfolio (dennisvonbargen.com)",
