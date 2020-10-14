@@ -45,4 +45,5 @@ Getting started on this project is easy.
 3. In Solution Explorer, right-click the `docker-compose` project and select `Set as Startup Project`
 4. Start application, either by clicking the green arrow or pressing `F5`
 
-When the application runs, it will run pending migrations on startup. The migrations creates the database structure and seeds the database with some data. You don't need to run Update-Database on 
+When the application runs, it will run pending migrations on startup. The migrations creates the database structure and seeds the database with some data. 
+You don't need to run Update-Database at all, since the application runs it on startup.
