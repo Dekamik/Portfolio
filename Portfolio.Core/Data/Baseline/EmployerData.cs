@@ -12,7 +12,7 @@ namespace Portfolio.Core.Data.Baseline
             StartDate = DateTime.Parse("2014-06-02"),
             EndDate = DateTime.Parse("2016-05-04"),
             EmployerDescription = "Adssets is a small company that creates and serves rich-media advertisements on web publications.",
-            RoleDescription = "With this employment, Dennis was thrust into the programming world with a bang. Due to the company''s small size, Dennis seized the opportunity to get busy working with several apps, as well as the server infrastructure that ran the apps."
+            RoleDescription = "With this employment, Dennis was thrust into the programming world with a bang. Due to the company's small size, Dennis seized the opportunity to get busy working with several apps, as well as the server infrastructure that ran the apps."
         };
 
         public static readonly Employer CybercomGroup = new Employer
@@ -41,7 +41,7 @@ namespace Portfolio.Core.Data.Baseline
             Name = "Sopra Steria",
             StartDate = DateTime.Parse("2018-03-14"),
             EndDate = null,
-            EmployerDescription = "Sopra Steria is a french multi-national IT-consultancy firm.",
+            EmployerDescription = "Sopra Steria is a large multi-national IT-consultancy firm based in France.",
             RoleDescription = "As a full-stack .NET consultant, Dennis has been involved in several projects, both in-house and on-site, for customers like Kammarkollegiet, Rovio Entertainment (famous for Angry Birds) and Tandvårdsförvaltningen Region Stockholm, Region Västmanland and Region Dalarna. Dennis has also done lectures for Sopra Sterias graduates within Unity3D programming, and Test Driven Development (TDD)."
         };
     }
