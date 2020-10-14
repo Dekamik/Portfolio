@@ -210,6 +210,7 @@ app {
 
 .project-card {
     margin-bottom: 2rem;
+    max-width: 1000px;
 }
 
 .home-text {
