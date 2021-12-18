@@ -17,6 +17,16 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.BusinessLogic", "Portfolio.BusinessLogic\Portfolio.BusinessLogic.csproj", "{2B4B5D34-107A-462B-BECF-E7E4E0A4C3F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{E696C692-B46B-4B8D-AA41-A1721A86E4D0}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		azure-pipelines.yml = azure-pipelines.yml
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.dcproj = docker-compose.dcproj
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
